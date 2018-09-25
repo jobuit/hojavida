@@ -1,0 +1,83 @@
+<div class="login-page">
+  <div class="contenedor">
+<div class="login-wrap">
+  <div class="login-html text-center">
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Inciar sesion</label>
+    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registro</label>
+    
+    <div class="login-form">
+
+      <form (submit)="LoginEmailPassword()">
+      <div class="sign-in-htm">
+        <div class="group text-left">
+          <label for="emailLogin" class="label">Correo electronico</label>
+          <input name="emailLogin" id="emailLogin" type="email" class="input" [(ngModel)]="emailLogin">
+        </div>
+        <div class="group text-left">
+          <label for="passLogin" class="label">Contraseña</label>
+          <input name="passLogin" id="passLogin" type="password" class="input" data-type="password" [(ngModel)]="passLogin">
+        </div>
+        <div class="group row">
+          <div class="col">
+              <input id="check" type="checkbox" class="check" checked>
+              <label for="check"><span class="icon"></span> Recordarme</label>
+          </div>
+          <div class="col">
+              <a href="#forgot"><small>¿Olvidaste tu contraseña?</small></a>
+          </div>
+        </div>
+        <div class="group">
+          <input type="submit" class="button" value="Ingresar">
+        </div>
+        <div class="hr"></div>
+          <div class="row justify-content-center align-items-center">
+              <a style="cursor: pointer;" (click)="FacebookSignIn()"><i class="fab fa-facebook mr-2 ml-2 fa-2x" style="color:#ACABAB"></i></a>
+              <a style="cursor: pointer;" (click)="GoogleSignIn()"><i class="fab fa-google mr-2 ml-2 fa-2x" style="color:#ACABAB"></i></a>
+              <a style="cursor: pointer;" (click)="TwitterSignIn()"><i class="fab fa-twitter mr-2 ml-2 fa-2x" style="color:#ACABAB"></i></a>
+          </div>
+      </div>
+    </form>
+
+      <form (submit)="RegistrarEmailPassword()">
+      <div class="sign-up-htm">
+          <div class="group text-left">
+              <label for="nombre" class="label">Nombre completo</label>
+              <input name="nombre" id="nombre" type="text" class="input" [(ngModel)]="nombre">
+            </div>
+
+        <div class="group text-left">
+          <label for="emailRegistro" class="label">Correo electronico</label>
+          <input name="emailRegistro" id="emailRegistro" type="email" class="input" [(ngModel)]="emailRegistro">
+        </div>
+        <div class="group text-left">
+          <label for="passRegistro" class="label">Contraseña</label>
+          <input name="passRegistro" id="passRegistro" type="password" class="input" data-type="password" [(ngModel)]="passRegistro">
+        </div>
+        <div class="group text-left">
+          <label for="repetirPass" class="label">Repetir contraseña</label>
+          <input name="repetirPass" id="repetirPass" type="password" class="input" data-type="password" [(ngModel)]="repetirPass">
+        </div>
+        <div class="group">
+          <input type="submit" class="button" value="Registrarme">
+        </div>
+        <div class="hr"></div>
+
+        <div class="row justify-content-center align-items-center">
+          <div class="col">
+              <div class="foot-lnk">
+                  <label for="tab-1" class="label"><small>¿Ya tienes una cuenta?</small></label>
+              </div>
+          </div>
+          <div class="col">
+            <a style="cursor: pointer;" (click)="FacebookSignIn()"><i class="fab fa-facebook mr-2 ml-2 fa-2x" style="color:#ACABAB"></i></a>
+            <a style="cursor: pointer;" (click)="GoogleSignIn()"><i class="fab fa-google mr-2 ml-2 fa-2x" style="color:#ACABAB"></i></a>
+            <a style="cursor: pointer;" (click)="TwitterSignIn()"><i class="fab fa-twitter mr-2 ml-2 fa-2x" style="color:#ACABAB"></i></a>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,313 @@
+<!-- Page Content Holder -->
+<div id="content">
+        <div class="card">
+            <div class="card-body">
+                <div class="input-group">
+                    <div class="container-fluid">
+                        <form (submit)="SaveInformationPersonal()">
+                            <div class="card-header">
+                                Informacion Personal
+                            </div>
+                            <div class="row">
+                                <div class="col-5 align-self-end">
+                                    <div class="form-group mb-1">
+                                        <label class="titulo-label" for="tarbajando_select">¿Esta trabajando actualmente?</label>
+                                        <div class="input-group">
+                                            <select class="form-control form-control-sm" id="tarbajando_select" name="tarbajando_select"
+                                                #tarbajando_select (change)="onChangeTrabajandoSelect(tarbajando_select.value)" [(ngModel)]="informacionPersonalObject.trabajando_actualmente">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                        <div *ngIf="informacionPersonalObject.trabajando_actualmente == 'si'">
+                                            <div class="input-group ">
+                                                <input type="text" aria-label="First name" class="form-control form-control-sm"
+                                                 name="nombre_empresa" placeholder="Nombre de la empresa" [(ngModel)]="informacionPersonalObject.nombre_empresa">
+                                                <input type="text" aria-label="Last name" class="form-control form-control-sm"
+                                                name="tipo_contrato" placeholder="Tipo de contrato" [(ngModel)]="informacionPersonalObject.tipo_contrato">
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="radioEmpleado"
+                                                        value="option1" checked >
+                                                    <label class="titulo-label" for="radioEmpleado">
+                                                        Empleado
+                                                    </label>
+                                                </div>
+                                                <div class="form-check ml-2">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="radioIndependiente"
+                                                        value="option2">
+                                                    <label class="titulo-label" for="radioIndependiente">
+                                                        Independiente
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="col-7">
+                                    <div class="row">
+                                        <div class="col align-self-end">
+                                            <label class="titulo-label" for="trabajo_aqui_select">¿Trabajo antes en esta empresa?</label>
+                                            <div class="input-group">
+                                                <select class="form-control form-control-sm" id="trabajo_aqui_select" name="trabajo_antes" [(ngModel)]="informacionPersonalObject.trabajo_antes">
+                                                    <option disabled>-Seleccionar-</option>
+                                                    <option value="si">Si</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+    
+                                        <div class="col align-self-end">
+                                            <label class="titulo-label" for="solicito_select">¿Ha solicito el empleo antes?</label>
+                                            <div class="input-group">
+                                                <select class="form-control form-control-sm" id="solicito_select" name="solicitado_antes"
+                                                    #solicito_select (change)="onChangeSolicitoSelect(solicito_select.value)" [(ngModel)]="informacionPersonalObject.solicitado_antes">
+                                                    <option disabled>-Seleccionar-</option>
+                                                    <option value="si">Si</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-4 align-self-end" *ngIf="informacionPersonalObject.solicitado_antes == 'si'">
+                                            <div class="form-group">
+                                                <label class="titulo-label" for="fecha_solicitud">Fecha</label>
+                                                <input type="date" id="fecha_solicitud" class="form-control form-control-sm"
+                                                [(ngModel)]="informacionPersonalObject.fecha_solicitado" name="fecha_solicitado">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+    
+                            <div class="row">
+                                <div class="col align-self-end">
+                                    <div class="form-group mb-1">
+                                        <label class="titulo-label" for="recomendo_select">¿Lo recomendo alguien de esta empresa?</label>
+                                        <div class="input-group">
+                                            <select class="form-control form-control-sm" id="recomendo_select" name="recomienda_alguien_empresa"
+                                                #recomendo_select (change)="onChangeRecomendoSelect(recomendo_select.value)" [(ngModel)]="informacionPersonalObject.recomienda_alguien_empresa">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                        <div *ngIf="informacionPersonalObject.recomienda_alguien_empresa == 'si'">
+                                            <div class="input-group">
+                                                <input type="text" aria-label="First name" class="form-control form-control-sm"
+                                                    id="numero_libreta" placeholder="Nombre" [(ngModel)]="informacionPersonalObject.nombre_recomienda" name="nombre_recomienda">
+                                                <input type="text" aria-label="Last name" class="form-control form-control-sm"
+                                                    id="distrito" placeholder="Dependencia" [(ngModel)]="informacionPersonalObject.dependencia_recomienda" name="dependencia_recomienda">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="col align-self-end">
+                                    <div class="form-group mb-1">
+                                        <label class="titulo-label" for="parientes_select">¿Tiene parientes en esta
+                                            empresa?</label>
+                                        <div class="input-group">
+                                            <select class="form-control form-control-sm" id="parientes_select" name="parientes_empresa"
+                                                #parientes_select (change)="onChangeParientesSelect(parientes_select.value)" [(ngModel)]="informacionPersonalObject.parientes_empresa">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                        <div *ngIf="informacionPersonalObject.parientes_empresa == 'si'">
+                                            <div class="input-group">
+                                                <input type="text" aria-label="First name" class="form-control form-control-sm"
+                                                    name="nombre_parientes" placeholder="Nombre" [(ngModel)]="informacionPersonalObject.nombre_parientes">
+                                                <input type="text" aria-label="Last name" class="form-control form-control-sm"
+                                                    name="dependencia_parientes" placeholder="Dependencia" [(ngModel)]="informacionPersonalObject.dependencia_parientes">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="col align-self-end">
+                                    <div class="form-group mb-1">
+                                        <label class="titulo-label" for="conocimiento_select">¿Como tuvo conocimiento de la
+                                            vacante?</label>
+                                        <div class="input-group">
+                                            <select class="form-control form-control-sm" id="conocimiento_select" name="conocimiento_vacante"
+                                                #conocimiento_select (change)="onChangeConocimientoSelect(conocimiento_select.value)" [(ngModel)]="informacionPersonalObject.conocimiento_vacante">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="anuncio">Anuncio</option>
+                                                <option value="amigo">Amigo</option>
+                                                <option value="por_medio_agencia">Por medio de agencia</option>
+                                                <option value="otro">Otro</option>
+                                            </select>
+                                        </div>
+                                        <div *ngIf="informacionPersonalObject.conocimiento_vacante == 'otro'">
+                                            <div class="input-group">
+                                                <input type="text" aria-label="First name" class="form-control form-control-sm"
+                                                    name="otro_conocimiento" placeholder="¿Cual?" [(ngModel)]="informacionPersonalObject.otro_conocimiento">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row">
+                                <div class="col align-self-end">
+                                    <div class="form-group mb-0">
+                                        <label class="titulo-label" for="ciudad_vivido">¿En que ciudad o poblacion ha vivido la
+                                            mayor parte de su vida?</label>
+                                        <input type="text" id="ciudad_vivido" name="ciudad_vivido" class="form-control form-control-sm" [(ngModel)]="informacionPersonalObject.ciudad_vivido">
+                                    </div>
+                                </div>
+    
+                                <div class="col align-self-end">
+                                    <div class="form-group mb-0">
+                                        <label class="titulo-label" for="ciudad_trabajado">¿En que ciudades o regiones del pais a
+                                            trabajado?</label>
+                                        <input type="text" id="ciudad_trabajado" name="ciudad_trabajado" class="form-control form-control-sm" [(ngModel)]="informacionPersonalObject.ciudad_trbajado">
+                                    </div>
+                                </div>
+    
+                                <div class="col-5 align-self-end">
+                                    <div class="form-group mb-1">
+                                        <label class="titulo-label" for="casa_select">Vive en casa:</label>
+                                        <div class="input-group">
+                                            <select class="form-control form-control-sm" id="casa_select" #casa_select name="tipo_casa"
+                                                (change)="onChangeCasaSelect(casa_select.value)" [(ngModel)]="informacionPersonalObject.tipo_casa">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="familiar">Familiar</option>
+                                                <option value="propia">Propia</option>
+                                                <option value="arrendada">Arrendada</option>
+                                            </select>
+                                        </div>
+                                        <input type="text" aria-label="First name" class="form-control form-control-sm" name="tiempo_residencia"
+                                            placeholder="¿Hace cuanto reside en el lugar?" [(ngModel)]="informacionPersonalObject.tiempo_residencia">
+                                        <div *ngIf="informacionPersonalObject.tipo_casa == 'arrendada'">
+                                            <div class="input-group">
+                                                <input type="text" aria-label="First name" class="form-control form-control-sm"
+                                                    name="nombre_arrendador" placeholder="Nombre arrendador" [(ngModel)]="informacionPersonalObject.nombre_arrendador">
+                                                <input type="text" aria-label="First name" class="form-control form-control-sm"
+                                                    name="telefono_arrendador" placeholder="Telefono arrendador" [(ngModel)]="informacionPersonalObject.telefono_arrendador">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row">
+                                <div class="col align-self-end">
+                                    <div class="form-group mb-1">
+                                        <label class="titulo-label" for="ingreso_select">¿Actualmente tiene algun ingreso
+                                            adicional?</label>
+                                        <div class="input-group">
+                                            <select class="form-control form-control-sm" id="ingreso_select" name="ingreso_adicional"
+                                                #ingreso_select (change)="onChangeIngresoSelect(ingreso_select.value)" [(ngModel)]="informacionPersonalObject.ingreso_adicional">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                        <div *ngIf="informacionPersonalObject.ingreso_adicional == 'si'">
+                                            <div class="input-group">
+                                                <input type="text" aria-label="First name" class="form-control form-control-sm"
+                                                    name="describalo_ingreso" placeholder="Describalo e ingrese su valor" [(ngModel)]="informacionPersonalObject.describalo_ingreso">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="col align-self-end">
+                                    <div class="form-group mb-0">
+                                        <label class="titulo-label" for="cuanto_obligaciones">¿Cuanto suman sus obligaciones economicas
+                                            mensuales?</label>
+                                        <div class="input-group input-group-sm">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroup-sizing-sm">$</span>
+                                            </div>
+                                            <input type="text" id="cuanto_obligaciones" name="cuanto_obligaciones" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="informacionPersonalObject.obligaciones_mensuales">
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="col align-self-end">
+                                    <div class="form-group mb-0">
+                                        <label class="titulo-label" for="aspiracion_salarial">¿Cuanto es su aspiracion salarial?</label>
+                                        <div class="input-group input-group-sm">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroup-sizing-sm">$</span>
+                                            </div>
+                                            <input type="text" id="aspiracion_salarial" name="aspiracion_salarial" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="informacionPersonalObject.aspiracion_salarial">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row">
+                                <div class="col align-self-end">
+                                    <div class="form-group mb-1">
+                                        <label class="titulo-label" for="otra_ciudad_select">¿Aceptaria trabajar en otra
+                                            ciudad?</label>
+                                        <div class="input-group">
+                                            <select class="form-control form-control-sm" id="otra_ciudad_select" [(ngModel)]="informacionPersonalObject.trbajaria_otro_lugar" name="trbajaria_otro_lugar">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="col align-self-end">
+                                    <div class="form-group mb-0">
+                                        <label class="titulo-label" for="mayor_aficion">¿Cual es su mayor aficion?</label>
+                                        <input type="text" id="mayor_aficion" name="mayor_aficion" class="form-control form-control-sm" [(ngModel)]="informacionPersonalObject.mayor_aficion">
+                                    </div>
+                                </div>
+    
+                                <div class="col align-self-end">
+                                    <div class="form-group mb-1">
+                                        <label class="titulo-label" for="deporte_select">¿Practica algun deporte?</label>
+                                        <div class="input-group">
+                                            <select class="form-control form-control-sm" id="deporte_select" name="practica_deporte"
+                                                #deporte_select (change)="onChangeDeporteSelect(deporte_select.value)" [(ngModel)]="informacionPersonalObject.practica_deporte">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                        <div *ngIf="informacionPersonalObject.practica_deporte == 'si'">
+                                            <div class="input-group">
+                                                <input type="text" aria-label="First name" class="form-control form-control-sm"
+                                                    name="cuales_deportes" placeholder="¿Cual(es)?" [(ngModel)]="informacionPersonalObject.cuales_deportes">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group mb-0">
+                                        <label class="titulo-label" for="expectativas_laboral">Mencione brevemente que expectativas
+                                            tiene e indique como planea hacerlas realidad.</label>
+                                        <input type="text" id="expectativas_laboral" class="form-control form-control-sm" placeholder="A nivel laboral" [(ngModel)]="informacionPersonalObject.nivel_laboral" name="nivel_laboral">
+                                        <input type="text" id="nombres" class="form-control form-control-sm" placeholder="A nivel educativo" [(ngModel)]="informacionPersonalObject.nivel_educativo" name="nivel_educativo">
+                                        <input type="text" id="nombres" class="form-control form-control-sm" placeholder="A nivel personal" [(ngModel)]="informacionPersonalObject.nivel_personal" name="nivel_personal">
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+                            <div class="group text-center">
+                                <input type="submit" class="boton-form" value="Guardar informacion">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>

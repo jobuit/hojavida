@@ -1,0 +1,61 @@
+<!-- Sidebar Holder -->
+
+<nav id="sidebar" *ngIf="isLogin">
+
+    <div class="contenedor">
+
+    <ul class="list-unstyled components">
+            <div class="ml-2 mb-4">
+                    <h3 class="mb-0">Mi hoja de vida</h3>
+                    <div class="row ml-2">
+                        <img src="{{photoUser}}" class="rounded-circle" style="widht:50px;height:50px;">
+                        <div class="ml-1">
+                            <small>{{emailUser}}</small><br>
+                            <a href="/login" (click)="cerrarSesion()"><small>Cerrar sesion</small></a>
+                        </div>
+                        
+                    </div>
+            </div>
+
+        <li>
+            <a href="#" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ><i class="fas fa-user-tie"></i> Informacion general</a>
+        </li>
+        <li>
+            <a href="#" routerLink="/personal" routerLinkActive="active"><i class="fas fa-info-circle"></i> Informacion personal</a>
+        </li>
+        <li>
+            <a href="#" routerLink="/familiar" routerLinkActive="active"><i class="fas fa-users"></i> Informacion familiar</a>
+        </li>
+        <li>
+            <a href="#"><i class="fas fa-graduation-cap"></i> Educacion y aptitudes</a>
+        </li>
+        <li>
+            <a href="#"><i class="fas fa-building"></i> Trayectoria por empresa</a>
+        </li>
+        <li>
+            <a href="#"><i class="fas fa-briefcase"></i> Experiencia laboral</a>
+        </li>
+
+        <li>
+            <a href="#"><i class="fas fa-phone-square"></i> Referencias personales</a>
+        </li>
+
+        <li>
+            <a href="#" routerLink="/documentos" routerLinkActive="active"><i class="far fa-file-alt"></i> Documentos</a>
+        </li>
+
+        <li>
+            <a href="#" routerLink="/exportar" routerLinkActive="active"><i class="far fa-file-alt"></i> Resultado</a>
+        </li>
+
+    </ul>
+
+    <p>Encuentranos</p>
+    <div class="row justify-content-center align-items-center">
+        <a href=""><img src="assets/img/internet.png"/></a>
+        <a href=""><i class="fab fa-facebook mr-2 ml-2 fa-2x" style="color:white"></i></a>
+        <a href=""><i class="fab fa-instagram mr-2 ml-2 fa-2x" style="color:white"></i></a>
+    </div>
+</div>
+
+</nav>

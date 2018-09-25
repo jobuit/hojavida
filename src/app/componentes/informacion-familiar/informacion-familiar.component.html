@@ -1,0 +1,149 @@
+<!-- Page Content Holder -->
+<div id="content" #content>
+        <div class="card">
+            <div class="card-body">
+                <div class="input-group">
+                    <div class="container-fluid">
+    
+                        <form (submit)="SaveInformationGeneral()">
+                                <div class="card-header">
+                                        Informacion General
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                                <label class="titulo-label" for="tiene_esposa">¿Tiene esposa(o) o compañera(o)?</label>
+                                                <select class="form-control form-control-sm" id="tiene_esposa" #tiene_esposa
+                                                   [(ngModel)]="informacionFamiliarObject.tiene_esposa"
+                                                    name="tiene_esposa">
+                                                    <option disabled>- Seleccionar -</option>
+                                                    <option value="si">Si</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                        <div *ngIf="informacionFamiliarObject.tiene_esposa == 'si'">
+                                                <div class="row" style="width:100%;">   
+                                            <div class="col">
+                                                        <div class="form-group mb-0">
+                                                            <label class="titulo-label" for="nombre_esposa">Nombre esposa(o) o compañera(o)</label>
+                                                            <input type="text" id="nombre_esposa" class="form-control form-control-sm"
+                                                                [(ngModel)]="informacionFamiliarObject.nombre_esposa" name="nombre_esposa">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group mb-0">
+                                                            <label class="titulo-label" for="profesion_ocupacion_esposa">Profesion, ocupacion u oficio</label>
+                                                            <input type="text" id="profesion_ocupacion_esposa" class="form-control form-control-sm"
+                                                                [(ngModel)]="informacionFamiliarObject.profesion_ocupacion_esposa"
+                                                                name="profesion_ocupacion_esposa">
+                                                        </div>
+                                                    </div>
+            
+                                                    <div class="col">
+                                                            <div class="form-group mb-0">
+                                                                <label class="titulo-label" for="empresa_trabaja_esposa">Empresa donde trabaja</label>
+                                                                <input type="text" id="empresa_trabaja_esposa" class="form-control form-control-sm"
+                                                                     [(ngModel)]="informacionFamiliarObject.empresa_trabaja_esposa"
+                                                                    name="empresa_trabaja_esposa">
+                                                            </div>
+                                                        </div>
+
+                                                        </div>
+
+                                                        <div class="row" style="width:100%;">
+                                                                <div class="col">
+                                                                    <div class="form-group mb-0">
+                                                                        <label class="titulo-label" for="cargo_actual_esposa">Cargo actual</label>
+                                                                        <input type="text" id="cargo_actual_esposa" class="form-control form-control-sm"
+                                                                           [(ngModel)]="informacionFamiliarObject.cargo_actual_esposa"
+                                                                            name="cargo_actual_esposa">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="form-group mb-0">
+                                                                        <label class="titulo-label" for="direccion_esposa">Direccion</label>
+                                                                        <input type="text" id="direccion_esposa" class="form-control form-control-sm"
+                                                                            [(ngModel)]="informacionFamiliarObject.direccion_esposa"
+                                                                            name="direccion_esposa">
+                                                                    </div>
+                                                                </div>
+                        
+                                                                <div class="col">
+                                                                        <div class="form-group mb-0">
+                                                                            <label class="titulo-label" for="telefono_esposa">Telefono</label>
+                                                                            <input type="number" id="telefono_esposa" class="form-control form-control-sm" [(ngModel)]="informacionFamiliarObject.telefono_esposa"
+                                                                                name="telefono_esposa">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group mb-0">
+                                                                            <label class="titulo-label" for="ciudad_esposa">Numero de celular</label>
+                                                                            <input type="number" id="ciudad_esposa" class="form-control form-control-sm" [(ngModel)]="informacionFamiliarObject.ciudad_esposa"
+                                                                                name="ciudad_esposa">
+                                                                        </div>
+                                                                    </div>
+                        
+                                                            </div>
+                        
+                                        </div>
+
+                                        <div class="row">
+                                                <div class="col">
+                                                        <label class="titulo-label" for="numero_personas_dependen">Numero de personas que dependan economicamente de usted?</label>
+                                                        <select class="form-control form-control-sm" id="numero_personas_dependen" #numero_personas_dependen
+                                                           [(ngModel)]="informacionFamiliarObject.numero_personas_dependen"
+                                                            name="numero_personas_dependen">
+                                                            <option disabled>- Seleccionar -</option>
+                                                            <option value="0">0</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                        </select>
+                                                </div>
+                                            </div>
+
+                                            <div *ngFor="let recipient of informacionFamiliarObject.numero_personas_dependen">
+                                                    <div class="row" style="width:100%;">   
+                                                            <div class="col">
+                                                                    <div class="form-group mb-0">
+                                                                        <label class="titulo-label" for="nombres_parentesco">Nombre completo</label>
+                                                                        <input type="text" id="nombres_parentesco" class="form-control form-control-sm"
+                                                                            [(ngModel)]="informacionFamiliarObject.nombres_parentesco" name="nombres_parentesco">
+                                                                    </div>
+                                                                </div>
+                                                <div class="col">
+                                                            <div class="form-group mb-0">
+                                                                <label class="titulo-label" for="parentesco">Parentesco</label>
+                                                                <input type="text" id="parentesco" class="form-control form-control-sm"
+                                                                    [(ngModel)]="informacionFamiliarObject.parentesco" name="parentesco">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-group mb-0">
+                                                                <label class="titulo-label" for="edad">Edad</label>
+                                                                <input type="text" id="edad" class="form-control form-control-sm"
+                                                                    [(ngModel)]="informacionFamiliarObject.edad"
+                                                                    name="edad">
+                                                            </div>
+                                                        </div>
+    
+                                                            </div>
+                            
+                                            </div>
+                                    
+                            <div class="group text-center">
+                                <input type="submit" class="boton-form" value="Guardar informacion">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>

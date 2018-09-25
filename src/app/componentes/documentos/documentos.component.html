@@ -1,0 +1,46 @@
+<div id="content">
+  <div class="row mb-2" style="display:flex; align-items: center; justify-content: center;">
+<div class="dropzone" 
+     dropZone
+     (hovered)="toggleHover($event)"
+     (dropped)="startUpload($event)"
+     [class.hovering]="isHovering">
+
+     <h6>Arrastra todos tus certificados y documentos necesarios en tu hoja de vida</h6>
+     <small>( Cedula,diplomas,certificaciones,etc... )</small>
+
+     <div class="file p-1">
+        <label class="file-label" for="imageUpload">
+            <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fa fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  O elige tus imagenes...
+                </span>
+              </span>
+        <input type='file' multiple id="imageUpload" accept=".png, .jpg, .jpeg" (change)="startUpload($event.target.files)" style="display:none">
+        </label>
+      </div>
+</div>
+</div>
+
+<div class="wrapper">
+  <div *ngFor="let img of imgs | async" style="height:300px;">
+      <div class="avatar-upload text-center">
+          <div class="avatar-edit">
+              <label (click)="EliminarImagen(img.key)"><i class="far fa-trash-alt"></i></label>
+          </div>
+          <div class="avatar-preview" style="width:150px;">
+            <a href="{{img.url}}" data-lightbox="image" data-title="{{img.name}}">
+                <img class="ui bordered small image" [src]="img.url" style="width:100%;">
+            </a>
+          </div>
+      </div>
+      
+  </div>
+    
+</div>
+
+
+</div>

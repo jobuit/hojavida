@@ -1,0 +1,35 @@
+export class InformacionPersonal {
+    trabajando_actualmente:string;
+    nombre_empresa:string;
+    tipo_contrato:string;
+    tipo_empleado:string;
+    trabajo_antes:string;
+    solicitado_antes:string;
+    fecha_solicitado:string;
+    recomienda_alguien_empresa:string;
+    nombre_recomienda:string;
+    dependencia_recomienda:string;
+    parientes_empresa:string;
+    nombre_parientes:string;
+    dependencia_parientes:string;
+    conocimiento_vacante:string;
+    otro_conocimiento:string;
+    //recomienda_esta_empresa:string;
+    ciudad_vivido:string;
+    ciudad_trbajado:string;
+    tipo_casa:string;
+    tiempo_residencia:string;
+    nombre_arrendador:string;
+    telefono_arrendador:string;
+    ingreso_adicional:string;
+    describalo_ingreso:string;
+    obligaciones_mensuales:string;
+    aspiracion_salarial:string;
+    trbajaria_otro_lugar:string;
+    mayor_aficion:string;
+    practica_deporte:string;
+    cuales_deportes:string;
+    nivel_laboral:string;
+    nivel_educativo:string;
+    nivel_personal:string;
+}

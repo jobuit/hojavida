@@ -1,0 +1,543 @@
+<!-- Page Content Holder -->
+<div id="content">
+    <button type="submit" class="boton-form" (click)="exportarPDF(informacionGeneralObject.avatar_url)"> Exportar PDF
+    </button>
+
+    <div id="contenido">
+        <div class="card">
+            <div class="card-body p-0">
+
+                <!--Informacion General-->
+                <div>
+                        <div class="card-header">
+                                Informacion General
+                            </div>
+            
+                            <div class="row">
+            
+                                <div class="col-2 text-center">
+                                    <div class="avatar-upload text-center">
+                                        <div class="avatar-preview">
+                                            <a href="{{informacionGeneralObject.avatar_url}}" data-lightbox="image" data-title="Mi imagen de perfil">
+                                                <div id="imagePreview" class="ui bordered small image" [ngStyle]="{'background-image' : 'url('+informacionGeneralObject.avatar_url+')'}"></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div class="col-10 align-self-end">
+            
+                                    <div class="row mr-0">
+                                        <div class="col">
+                                            <label class="titulo-label" for="nombres">Nombre(s) del aspirante</label>
+                                            <p class="ml-3">{{informacionGeneralObject.nombres}}</p>
+                                        </div>
+                                        <div class="col">
+                                            <label class="titulo-label" for="apellidos">Apellido(s) del aspirante</label>
+                                            <p class="ml-3">{{informacionGeneralObject.apellidos}}</p>
+                                        </div>
+            
+                                    </div>
+            
+                                    <div class="row  mr-0">
+            
+                                        <div class="col">
+                                            <label class="titulo-label" for="lugar_nacimiento">Lugar de nacimiento</label>
+                                            <p class="ml-3">{{informacionGeneralObject.lugar_nacimiento}}</p>
+                                        </div>
+                                        <div class="col">
+                                            <label class="titulo-label" for="fecha_nacimiento">Fecha de nacimiento</label>
+                                            <p class="ml-3">{{informacionGeneralObject.fecha_nacimiento}}</p>
+                                        </div>
+            
+                                        <div class="col">
+                                            <label class="titulo-label" for="telefono">Celular</label>
+                                            <p class="ml-3">{{informacionGeneralObject.celular}}</p>
+                                        </div>
+            
+                                    </div>
+            
+                                    <div class="row  mr-0">
+                                        <div class="col">
+                                            <label class="titulo-label" for="telefono">Telefono</label>
+                                            <p class="ml-3">{{informacionGeneralObject.telefono}}</p>
+                                        </div>
+            
+                                        <div class="col">
+                                            <label class="titulo-label" for="correo">Correo electronico</label>
+                                            <p class="ml-3">{{informacionGeneralObject.correo}}</p>
+                                        </div>
+                                        <div class="col">
+                                            <label class="titulo-label" for="nacionalidad">Nacionalidad</label>
+                                            <p class="ml-3">{{informacionGeneralObject.nacionalidad}}</p>
+                                        </div>
+            
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="row p-0 m-0">
+                                <div class="col">
+                                    <label class="titulo-label" for="nacionalidad">Profesion, ocupacion u oficio</label>
+                                    <p class="ml-3">{{informacionGeneralObject.profesion_ocupacion}}</p>
+                                </div>
+            
+                                <div class="col">
+                                    <div class="form-group mb-0">
+                                        <label class="titulo-label" for="estado_civil">Estado civil</label>
+                                        <select id="estado_civil" [(ngModel)]="informacionGeneralObject.estado_civil" name="estado_civil" #estado_civil>
+                                            <option disabled>- Seleccionar -</option>
+                                            <option value="soltero" name="hola">Soltero(a)</option>
+                                            <option value="comprometido">Comprometido(a)</option>
+                                            <option value="casado">Casado(a)</option>
+                                            <option value="divorciado">Divorciado(a)</option>
+                                            <option value="viudo">Viudo(a)</option>
+                                            <option value="union_libre">Union libre</option>
+                                        </select>
+                                        <p class="ml-3">{{estado_civil.options[estado_civil.selectedIndex].text}}</p>
+                                    </div>
+                                </div>
+            
+                                <div class="col">
+                                    <label class="titulo-label" for="nacionalidad">Años de experiencia laboral</label>
+                                    <p class="ml-3">{{informacionGeneralObject.anos_experiencia}}</p>
+                                </div>
+                            </div>
+            
+            
+                            <div class="row p-0 m-0">
+                                <div class="col">
+                                    <label class="titulo-label" for="documento_select">Documento de identidad</label>
+                                    <select class="form-control form-control-sm text-center" #documento_select id="documento_select" [(ngModel)]="informacionGeneralObject.tipo_identidad"
+                                        name="tipo_identidad">
+                                        <option disabled>- Seleccionar -</option>
+                                        <option value="cc">Cédula ciudadanía(CC)</option>
+                                        <option value="ce">Cédula extranjería(CE)</option>
+                                        <option value="dni">Documento nacional identidad(DNI)</option>
+                                    </select>
+                                    <p class="ml-3">{{documento_select.options[documento_select.selectedIndex].text}}</p>
+                                    <div class="input-group">
+                                        <div class="mr-2">
+                                            <label class="titulo-label" for="nacionalidad">Numero de documento</label>
+                                            <p class="ml-3">{{informacionGeneralObject.numero_identidad}}</p>
+                                        </div>
+                                        <div>
+                                            <label class="titulo-label" for="nacionalidad">Expedida en</label>
+                                            <p class="ml-3">{{informacionGeneralObject.identidad_expedida}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div class="col">
+                                    <div class="centrar_vertical">
+                                            <label class="titulo-label" for="libreta_select">Libreta militar</label>
+                                            <select id="libreta_select" #libreta_select
+                                                (change)="onChangeLibretaSelect(libreta_select.value)" [(ngModel)]="informacionGeneralObject.tipo_libreta"
+                                                name="tipo_libreta">
+                                                <option disabled>- Seleccionar -</option>
+                                                <option value="libreta_primera">Primera clase</option>
+                                                <option value="libreta_segunda">Segunda clase</option>
+                                                <option value="no_tiene">No tiene</option>
+                                            </select>
+                                            <p class="ml-3">{{libreta_select.options[libreta_select.selectedIndex].text}}</p>
+                                            <div class="input-group" *ngIf="informacionGeneralObject.tipo_libreta != 'no_tiene'">
+                                                <div class="mr-2">
+                                                    <label class="titulo-label" for="nacionalidad">Numero de libreta</label>
+                                                    <p class="ml-3">{{informacionGeneralObject.numero_libreta}}</p>
+                                                </div>
+                                                <div>
+                                                    <label class="titulo-label" for="nacionalidad">Distrito</label>
+                                                    <p class="ml-3">{{informacionGeneralObject.distrito_libreta}}</p>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+            
+                            <div class="row p-0 m-0">
+            
+                                <div class="col">
+                                    <label class="titulo-label" for="nacionalidad">No. targeta profesional</label>
+                                    <p class="ml-3">{{informacionGeneralObject.targeta_profesional}}</p>
+                                </div>
+            
+                                <div class="col">
+            
+                                    <label class="titulo-label" for="vehiculo_select">¿Tiene vehiculo?</label>
+                                    <select class="form-control form-control-sm text-center" #vehiculo_select id="vehiculo_select" [(ngModel)]="informacionGeneralObject.tiene_vehiculo"
+                                        name="tiene_vehiculo">
+                                        <option disabled>- Seleccionar -</option>
+                                        <option value="si">Si</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                    <p class="ml-3">{{vehiculo_select.options[vehiculo_select.selectedIndex].text}}</p>
+            
+                                </div>
+            
+                                <div class="col-6">
+            
+                                    <div class="row">
+                                        <div class="col">
+                                            <label class="titulo-label" for="categoria_select">Licencia de conduccion</label>
+                                                <select class="form-control form-control-sm text-center" id="categoria_select"
+                                                    #categoria_select (change)="onChangeCategoriaSelect(categoria_select.value)"
+                                                    [(ngModel)]="informacionGeneralObject.categoria_licencia" name="categoria_licencia">
+                                                    <option disabled>Categoria</option>
+                                                    <option value="a1">A1</option>
+                                                    <option value="a2">A2</option>
+                                                    <option value="b1">B1</option>
+                                                    <option value="b2">B2</option>
+                                                    <option value="b3">B3</option>
+                                                    <option value="c1">C1</option>
+                                                    <option value="c2">C2</option>
+                                                    <option value="c3">C3</option>
+                                                    <option value="no_tiene">No tiene</option>
+                                                </select>
+                                                <p class="ml-3">{{categoria_select.options[categoria_select.selectedIndex].text}}</p>
+                                        </div>
+            
+                                        <div class="col" *ngIf="informacionGeneralObject.categoria_licencia != 'no_tiene'">
+                                            <label class="titulo-label" for="nacionalidad">No. licencia</label>
+                                            <p class="ml-3">{{informacionGeneralObject.numero_licencia}}</p>
+                                        </div>
+                                    </div>
+            
+            
+                                </div>
+                            </div>
+                </div>
+
+                <!--Informacion Personal-->
+                <div>
+                        <div class="card-header">
+                                Informacion Personal
+                            </div>
+                            <div class="row p-0 m-0">
+                                
+                                <div class="col-5">
+                                        <label class="titulo-label" for="tarbajando_select">¿Esta trabajando actualmente?</label>
+                                        
+                                            <select class="form-control form-control-sm" id="tarbajando_select" name="tarbajando_select"
+                                                #tarbajando_select (change)="onChangeTrabajandoSelect(tarbajando_select.value)" [(ngModel)]="informacionPersonalObject.trabajando_actualmente">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                            <p class="ml-3">{{tarbajando_select.options[tarbajando_select.selectedIndex].text}}</p>
+                         
+                                        <div *ngIf="informacionPersonalObject.trabajando_actualmente == 'si'">
+                                            <div class="input-group">
+                                                    <div class="mr-2">
+                                                            <label class="titulo-label">Nombre de la empresa</label>
+                                                            <p class="text-center">{{informacionPersonalObject.nombre_empresa}}</p>
+                                                        </div>
+                                                        <div>
+                                                                <label class="titulo-label">Tipo de contrato</label>
+                                                                <p class="ml-3">{{informacionPersonalObject.tipo_contrato}}</p>
+                                                            </div>
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="radioEmpleado"
+                                                        value="option1" checked >
+                                                    <label class="titulo-label" for="radioEmpleado">
+                                                        Empleado
+                                                    </label>
+                                                </div>
+                                                <div class="form-check ml-2">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="radioIndependiente"
+                                                        value="option2">
+                                                    <label class="titulo-label" for="radioIndependiente">
+                                                        Independiente
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+    
+                                <div class="col-7">
+                                    <div class="row" style="height:100%;">
+                                        <div class="col">
+                                                <div class="centrar_vertical">
+                                            <label class="titulo-label" for="trabajo_aqui_select">¿Trabajo antes en esta empresa?</label>
+                                            
+                                                <select class="form-control form-control-sm" #trabajo_aqui_select id="trabajo_aqui_select" name="trabajo_antes" [(ngModel)]="informacionPersonalObject.trabajo_antes">
+                                                    <option disabled>-Seleccionar-</option>
+                                                    <option value="si">Si</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                                <p class="ml-3">{{trabajo_aqui_select.options[trabajo_aqui_select.selectedIndex].text}}</p>
+                                            </div>
+                                        </div>
+    
+                                        <div class="col">
+                                                <div class="centrar_vertical">
+                                            <label class="titulo-label" for="solicito_select">¿Ha solicito el empleo antes?</label>
+                                            
+                                                <select class="form-control form-control-sm" id="solicito_select" name="solicitado_antes"
+                                                    #solicito_select (change)="onChangeSolicitoSelect(solicito_select.value)" [(ngModel)]="informacionPersonalObject.solicitado_antes">
+                                                    <option disabled>-Seleccionar-</option>
+                                                    <option value="si">Si</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                                <p class="ml-3">{{solicito_select.options[solicito_select.selectedIndex].text}}</p>
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-4" *ngIf="informacionPersonalObject.solicitado_antes == 'si'">
+                                                <div class="centrar_vertical">
+                                                        <label class="titulo-label">Fecha</label>
+                                                        <p class="ml-3">{{informacionPersonalObject.fecha_solicitado}}</p>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+    
+                            <div class="row p-0 m-0">
+                                <div class="col">
+                                    
+                                        <label class="titulo-label" for="recomendo_select">¿Lo recomendo alguien de esta empresa?</label>
+                                        
+                                            <select class="form-control form-control-sm" id="recomendo_select" name="recomienda_alguien_empresa"
+                                                #recomendo_select (change)="onChangeRecomendoSelect(recomendo_select.value)" [(ngModel)]="informacionPersonalObject.recomienda_alguien_empresa">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                            <p class="ml-3">{{recomendo_select.options[recomendo_select.selectedIndex].text}}</p>
+                                        
+                                        <div *ngIf="informacionPersonalObject.recomienda_alguien_empresa == 'si'">
+                                                <div class="input-group">
+                                                        <div class="mr-2">
+                                                                <label class="titulo-label">Nombre</label>
+                                                                <p class="ml-3">{{informacionPersonalObject.nombre_recomienda}}</p>
+                                                            </div>
+                                                            <div>
+                                                                    <label class="titulo-label">Dependencia</label>
+                                                                    <p class="ml-3">{{informacionPersonalObject.dependencia_recomienda}}</p>
+                                                                </div>
+                                                </div>
+                                        </div>
+                                </div>
+    
+                                <div class="col">
+                                        <div class="centrar_vertical">
+                                        <label class="titulo-label" for="parientes_select">¿Tiene parientes en esta
+                                            empresa?</label>
+
+                                            <select class="form-control form-control-sm" id="parientes_select" name="parientes_empresa"
+                                                #parientes_select (change)="onChangeParientesSelect(parientes_select.value)" [(ngModel)]="informacionPersonalObject.parientes_empresa">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                            <p class="ml-3">{{parientes_select.options[parientes_select.selectedIndex].text}}</p>
+                                        
+                                        <div *ngIf="informacionPersonalObject.parientes_empresa == 'si'">
+                                                <div class="input-group">
+                                                        <div class="mr-2">
+                                                                <label class="titulo-label">Nombre</label>
+                                                                <p class="ml-3">{{informacionPersonalObject.nombre_parientes}}</p>
+                                                            </div>
+                                                            <div>
+                                                                    <label class="titulo-label">Dependencia</label>
+                                                                    <p class="ml-3">{{informacionPersonalObject.dependencia_parientes}}</p>
+                                                                </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="col">
+                                        <div class="centrar_vertical">
+                                        <label class="titulo-label" for="conocimiento_select">¿Como tuvo conocimiento de la
+                                            vacante?</label>
+                                        
+                                            <select class="form-control form-control-sm" id="conocimiento_select" name="conocimiento_vacante"
+                                                #conocimiento_select (change)="onChangeConocimientoSelect(conocimiento_select.value)" [(ngModel)]="informacionPersonalObject.conocimiento_vacante">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="anuncio">Anuncio</option>
+                                                <option value="amigo">Amigo</option>
+                                                <option value="por_medio_agencia">Por medio de agencia</option>
+                                                <option value="otro">Otro</option>
+                                            </select>
+                                            <p class="ml-3">{{conocimiento_select.options[conocimiento_select.selectedIndex].text}}</p>
+                                       
+                                        <div *ngIf="informacionPersonalObject.conocimiento_vacante == 'otro'">
+                                            <div>
+                                                    <label class="titulo-label">¿Otro(s)?</label>
+                                                    <p class="ml-3">{{informacionPersonalObject.otro_conocimiento}}</p>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row p-0 m-0">
+                                <div class="col">
+                                        <div class="centrar_vertical">
+                                                    <label class="titulo-label">¿En que ciudad o poblacion ha vivido la
+                                                            mayor parte de su vida?</label>
+                                                    <p class="ml-3">{{informacionPersonalObject.ciudad_vivido}}</p>
+                                                </div>
+                                </div>
+    
+                                <div class="col">
+                                        <div class="centrar_vertical">
+                                                <label class="titulo-label">¿En que ciudades o regiones del pais a
+                                                        trabajado?</label>
+                                                <p class="ml-3">{{informacionPersonalObject.ciudad_trbajado}}</p>
+                                            </div>
+                                </div>
+    
+                                <div class="col-5">
+                                        <div class="row">
+
+                                            <div class="col-6">
+                                                    <label class="titulo-label" for="casa_select">Vive en casa:</label>
+                                                    
+                                                        <select class="form-control form-control-sm" id="casa_select" #casa_select name="tipo_casa"
+                                                            (change)="onChangeCasaSelect(casa_select.value)" [(ngModel)]="informacionPersonalObject.tipo_casa">
+                                                            <option disabled>-Seleccionar-</option>
+                                                            <option value="familiar">Familiar</option>
+                                                            <option value="propia">Propia</option>
+                                                            <option value="arrendada">Arrendada</option>
+                                                        </select>
+                                                        <p class="ml-3">{{casa_select.options[casa_select.selectedIndex].text}}</p>
+                                                    
+                                            </div>
+
+                                            <div class="col-6">
+                                                    <div>
+                                                            <label class="titulo-label">¿Hace cuanto reside en el lugar?</label>
+                                                            <p class="ml-3">{{informacionPersonalObject.tiempo_residencia}}</p>
+                                                        </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div *ngIf="informacionPersonalObject.tipo_casa == 'arrendada'">
+                                            <div class="input-group">
+                                                    <div class="mr-2">
+                                                            <label class="titulo-label">Nombre arrendador</label>
+                                                            <p class="ml-3">{{informacionPersonalObject.nombre_arrendador}}</p>
+                                                        </div>
+                                                        <div>
+                                                                <label class="titulo-label">Telefono arrendador</label>
+                                                                <p class="ml-3">{{informacionPersonalObject.telefono_arrendador}}</p>
+                                                            </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+    
+                            <div class="row p-0 m-0">
+                                <div class="col">
+                                    
+                                        <label class="titulo-label" for="ingreso_select">¿Actualmente tiene algun ingreso
+                                            adicional?</label>
+                                        
+                                            <select class="form-control form-control-sm" id="ingreso_select" name="ingreso_adicional"
+                                                #ingreso_select (change)="onChangeIngresoSelect(ingreso_select.value)" [(ngModel)]="informacionPersonalObject.ingreso_adicional">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                            <p class="ml-3">{{ingreso_select.options[ingreso_select.selectedIndex].text}}</p>
+                                       
+                                        <div *ngIf="informacionPersonalObject.ingreso_adicional == 'si'">
+                                                <div>
+                                                        <label class="titulo-label">Describalo e ingrese su valor</label>
+                                                        <p class="ml-3">{{informacionPersonalObject.describalo_ingreso}}</p>
+                                                    </div>
+                                        </div>
+                                </div>
+    
+                                <div class="col">
+                                        <div class="centrar_vertical">
+                                                <label class="titulo-label">¿Cuanto suman sus obligaciones economicas
+                                                        mensuales?</label>
+                                                <p class="ml-3">{{informacionPersonalObject.obligaciones_mensuales}}</p>
+                                            </div>
+                                </div>
+    
+                                <div class="col">
+                                        <div class="centrar_vertical">
+                                                <label class="titulo-label">¿Cuanto es su aspiracion salarial?</label>
+                                                <p class="ml-3">{{informacionPersonalObject.aspiracion_salarial}}</p>
+                                            </div>
+                                </div>
+                            </div>
+    
+                            <div class="row p-0 m-0">
+                                <div class="col">
+                                        <div class="centrar_vertical">
+                                        <label class="titulo-label" for="otra_ciudad_select">¿Aceptaria trabajar en otra
+                                            ciudad?</label>
+                                        
+                                            <select class="form-control form-control-sm" #otra_ciudad_select id="otra_ciudad_select" [(ngModel)]="informacionPersonalObject.trbajaria_otro_lugar" name="trbajaria_otro_lugar">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                            <p class="ml-3">{{otra_ciudad_select.options[otra_ciudad_select.selectedIndex].text}}</p>
+                                        </div>
+                                </div>
+    
+                                <div class="col">
+                                        <div class="centrar_vertical">
+                                                <label class="titulo-label">¿Cual es su mayor aficion?</label>
+                                                <p class="ml-3">{{informacionPersonalObject.mayor_aficion}}</p>
+                                            </div>
+                                </div>
+    
+                                <div class="col">
+                                        <label class="titulo-label" for="deporte_select">¿Practica algun deporte?</label>
+                                        
+                                            <select class="form-control form-control-sm" id="deporte_select" name="practica_deporte"
+                                                #deporte_select (change)="onChangeDeporteSelect(deporte_select.value)" [(ngModel)]="informacionPersonalObject.practica_deporte">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                            <p class="ml-3">{{deporte_select.options[deporte_select.selectedIndex].text}}</p>
+                                        
+                                        <div *ngIf="informacionPersonalObject.practica_deporte == 'si'">
+                                                <div>
+                                                        <label class="titulo-label">¿Cual(es)?</label>
+                                                        <p class="ml-3">{{informacionPersonalObject.cuales_deportes}}</p>
+                                                    </div>
+                                        </div>
+                                </div>
+                            </div>
+    
+                            <div class="row p-0 m-0">
+                                <div class="col align-self-center">
+                                        <label class="titulo-label" for="expectativas_laboral">Mencione brevemente que expectativas
+                                            tiene e indique como planea hacerlas realidad.</label>
+                                            <div>
+                                                    <label class="titulo-label">A nivel laboral</label>
+                                                    <p>{{informacionPersonalObject.nivel_laboral}}</p>
+                                                </div>
+                                                <div>
+                                                        <label class="titulo-label">A nivel educativo</label>
+                                                        <p>{{informacionPersonalObject.nivel_educativo}}</p>
+                                                    </div>
+                                                    <div>
+                                                            <label class="titulo-label">A nivel personal</label>
+                                                            <p>{{informacionPersonalObject.nivel_personal}}</p>
+                                                        </div>
+                                </div>
+                            </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,7 @@
+{
+    "/hojavida-18e62.appspot.com/*":{
+        "target":"https://firebasestorage.googleapis.com/v0/b",
+        "secure":false,
+        "changeOrigin":true
+    }
+}

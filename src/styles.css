@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+*
+{
+  font-family: 'PT Sans Caption', sans-serif, 'arial', 'Times New Roman';
+}
+
+.centrado {
+  position: fixed;
+  top: 3%;
+  left: 100%;
+  max-width: 300px;
+  font-size: 14px;
+  margin-left: -300px;
+}
+
+#content {
+  width: calc(100% - 250px);
+  padding: 10px 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#content.active {
+  width: 100%;
+}
+
+.titulo-label{
+  font-size: 12px;
+  color: rgb(152, 155, 158);
+  margin-bottom: -10px;
+}
+
+.form-control{
+  padding: -15px;
+}
+
+.form-control:focus { 
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+}
+
+.boton-form:hover { 
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+}
+
+.boton-form { 
+  margin-top: 20px;
+	height: 40px;
+	color:#fff;
+  background:rgb(64, 91, 167);
+	border:none;
+	padding:5px 10px;
+  border-radius:25px;
+  cursor: pointer;
+} 
+
+.custom-select:focus{
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+}

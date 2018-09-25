@@ -1,0 +1,239 @@
+<!-- Page Content Holder -->
+<div id="content" #content>
+    <div class="card">
+        <div class="card-body">
+            <div class="input-group">
+                <div class="container-fluid">
+
+                    <form (submit)="SaveInformationGeneral()">
+
+                        <div class="row" style="height:160px;">
+
+                            <div class="col-2 text-center">
+                                <div class="avatar-upload text-center">
+                                    <div class="avatar-edit">
+                                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" (change)="startUpload($event.target.files)" />
+                                        <label for="imageUpload"><i class="far fa-edit"></i></label>
+                                    </div>
+                                    <div class="avatar-preview">
+                                        <a href="{{informacionGeneralObject.avatar_url}}" data-lightbox="image"
+                                            data-title="Mi imagen de perfil">
+                                            <div id="imagePreview" class="ui bordered small image" [ngStyle]="{'background-image' : 'url('+informacionGeneralObject.avatar_url+')'}"></div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-10 align-self-end">
+                                <div class="card-header">
+                                    Informacion General
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group mb-0">
+                                            <label class="titulo-label" for="nombres">Nombre(s) del aspirante</label>
+                                            <input type="text" id="nombres" class="form-control form-control-sm"
+                                                [(ngModel)]="informacionGeneralObject.nombres" name="nombres">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group mb-0">
+                                            <label class="titulo-label" for="apellidos">Apellido(s) del aspirante</label>
+                                            <input type="text" id="apellidos" class="form-control form-control-sm"
+                                                value="{{informacionGeneralObject.apellidos}}" [(ngModel)]="informacionGeneralObject.apellidos"
+                                                name="apellidos">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group mb-0">
+                                            <label class="titulo-label" for="lugar_nacimiento">Lugar de nacimiento</label>
+                                            <input type="text" id="lugar_nacimiento" class="form-control form-control-sm"
+                                                value="{{informacionGeneralObject.lugar_nacimiento}}" [(ngModel)]="informacionGeneralObject.lugar_nacimiento"
+                                                name="lugar">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group mb-0">
+                                            <label class="titulo-label" for="fecha_nacimiento">Fecha de nacimiento</label>
+                                            <input type="date" id="fecha_nacimiento" class="form-control form-control-sm"
+                                                value="{{informacionGeneralObject.fecha_nacimiento}}" [(ngModel)]="informacionGeneralObject.fecha_nacimiento"
+                                                name="fecha">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group mb-0">
+                                    <label class="titulo-label" for="telefono">Telefono</label>
+                                    <input type="number" id="telefono" class="form-control form-control-sm" [(ngModel)]="informacionGeneralObject.telefono"
+                                        name="telefono">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group mb-0">
+                                    <label class="titulo-label" for="celular">Numero de celular</label>
+                                    <input type="number" id="celular" class="form-control form-control-sm" [(ngModel)]="informacionGeneralObject.celular"
+                                        name="celular">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group mb-0">
+                                    <label class="titulo-label" for="correo">Correo electronico</label>
+                                    <input type="email" id="correo" class="form-control form-control-sm" [(ngModel)]="informacionGeneralObject.correo"
+                                        name="correo">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group mb-0">
+                                    <label class="titulo-label" for="nacionalidad">Nacionalidad</label>
+                                    <input type="text" id="nacionalidad" class="form-control form-control-sm"
+                                        [(ngModel)]="informacionGeneralObject.nacionalidad" name="nacionalidad">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group mb-0">
+                                    <label class="titulo-label" for="profesion">Profesion, ocupacion u oficio</label>
+                                    <input type="text" id="profesion" class="form-control form-control-sm" [(ngModel)]="informacionGeneralObject.profesion_ocupacion"
+                                        name="profesion_ocupacion">
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group mb-0">
+                                    <label class="titulo-label" for="estado_civil">Estado civil</label>
+                                    <select class="form-control form-control-sm" id="estado_civil" [(ngModel)]="informacionGeneralObject.estado_civil"
+                                        name="estado_civil">
+                                        <option disabled>- Seleccionar -</option>
+                                        <option value="soltero">Soltero(a)</option>
+                                        <option value="comprometido">Comprometido(a)</option>
+                                        <option value="casado">Casado(a)</option>
+                                        <option value="divorciado">Divorciado(a)</option>
+                                        <option value="viudo">Viudo(a)</option>
+                                        <option value="union_libre">Union libre</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group mb-0">
+                                    <label class="titulo-label" for="experiencia">Años de experiencia laboral</label>
+                                    <input type="text" id="experiencia" class="form-control form-control-sm"
+                                        [(ngModel)]="informacionGeneralObject.anos_experiencia" name="anos_experiencia">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col">
+                                <label class="titulo-label" for="documento_select">Documento de identidad</label>
+                                <select class="form-control form-control-sm" id="documento_select" [(ngModel)]="informacionGeneralObject.tipo_identidad"
+                                    name="tipo_identidad">
+                                    <option disabled>- Seleccionar -</option>
+                                    <option value="cc">Cédula ciudadanía(CC)</option>
+                                    <option value="ce">Cédula extranjería(CE)</option>
+                                    <option value="dni">Documento nacional identidad(DNI)</option>
+                                </select>
+                                <div class="input-group">
+                                    <input type="text" aria-label="First name" class="form-control form-control-sm" id="numero_documento"
+                                        placeholder="No. documento" [(ngModel)]="informacionGeneralObject.numero_identidad"
+                                        name="numero_identidad">
+                                    <input type="text" aria-label="Last name" class="form-control form-control-sm" id="expedida"
+                                        placeholder="Expedida en" [(ngModel)]="informacionGeneralObject.identidad_expedida"
+                                        name="identidad_expedida">
+                                </div>
+                            </div>
+
+                            <div class="col align-self-center">
+                                <label class="titulo-label" for="libreta_select">Libreta militar</label>
+                                <select class="form-control form-control-sm" id="libreta_select" #libreta_select
+                                    (change)="onChangeLibretaSelect(libreta_select.value)" [(ngModel)]="informacionGeneralObject.tipo_libreta"
+                                    name="tipo_libreta">
+                                    <option disabled>- Seleccionar -</option>
+                                    <option value="libreta_primera">Primera clase</option>
+                                    <option value="libreta_segunda">Segunda clase</option>
+                                    <option value="no_tiene">No tiene</option>
+                                </select>
+                                <div class="input-group" *ngIf="informacionGeneralObject.tipo_libreta != 'no_tiene'">
+                                    <input type="text" aria-label="First name" class="form-control form-control-sm" id="numero_libreta"
+                                        placeholder="No. libreta" [(ngModel)]="informacionGeneralObject.numero_libreta"
+                                        name="numero_libreta">
+                                    <input type="text" aria-label="Last name" class="form-control form-control-sm" id="distrito"
+                                        placeholder="Distrito" [(ngModel)]="informacionGeneralObject.distrito_libreta"
+                                        name="distrito_libreta">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-3">
+                                <div class="form-group mb-0">
+                                    <label class="titulo-label" for="targeta_profesional">No. targeta profesional</label>
+                                    <input type="email" id="targeta_profesional" class="form-control form-control-sm"
+                                        [(ngModel)]="informacionGeneralObject.targeta_profesional" name="targeta_profesional">
+                                </div>
+                            </div>
+
+                            <div class="col-3">
+
+                                <label class="titulo-label" for="vehiculo_select">¿Tiene vehiculo?</label>
+                                <select class="form-control form-control-sm" id="vehiculo_select" [(ngModel)]="informacionGeneralObject.tiene_vehiculo"
+                                    name="tiene_vehiculo">
+                                    <option disabled>- Seleccionar -</option>
+                                    <option value="si">Si</option>
+                                    <option value="no">No</option>
+                                </select>
+
+                            </div>
+
+                            <div class="col-6">
+
+
+                                <label class="titulo-label" for="categoria_select">Licencia de conduccion</label>
+                                <div class="input-group">
+                                    <select class="form-control form-control-sm" id="categoria_select"
+                                        #categoria_select (change)="onChangeCategoriaSelect(categoria_select.value)"
+                                        [(ngModel)]="informacionGeneralObject.categoria_licencia" name="categoria_licencia">
+                                        <option disabled>Categoria</option>
+                                        <option value="a1">A1</option>
+                                        <option value="a2">A2</option>
+                                        <option value="b1">B1</option>
+                                        <option value="b2">B2</option>
+                                        <option value="b3">B3</option>
+                                        <option value="c1">C1</option>
+                                        <option value="c2">C2</option>
+                                        <option value="c3">C3</option>
+                                        <option value="no_tiene">No tiene</option>
+                                    </select>
+                                    <input type="text" class="form-control form-control-sm" id="numero_licencia"
+                                        placeholder="No. licencia" *ngIf="informacionGeneralObject.categoria_licencia != 'no_tiene'"
+                                        [(ngModel)]="informacionGeneralObject.numero_licencia" name="numero_licencia">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group text-center">
+                            <input type="submit" class="boton-form" value="Guardar informacion">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
