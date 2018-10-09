@@ -25,7 +25,6 @@ export class InformacionPersonalComponent implements OnInit {
 
   ngOnInit() {
     this.firebaseCrud.setOpcion('informacion-personal');
-
     this.ConseguirDatosFirebase();
   }
 

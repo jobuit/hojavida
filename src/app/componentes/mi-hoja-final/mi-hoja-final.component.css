@@ -14,7 +14,7 @@
     background-position: center;
 }
 
-#contenido{
+.contenido{
     width: 800px;
     padding: 20px;
 }
@@ -37,7 +37,7 @@ p{
     color: rgb(29, 29, 29);
 }
 
-.col, .col-5, .col-4{
+.col, .col-2, .col-3, .col-5, .col-4{
     border: 1px solid #cccccc;
     padding-bottom: 0px;
     padding-top: 0px;

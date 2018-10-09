@@ -33,11 +33,17 @@ import { InformacionFamiliarComponent } from './componentes/informacion-familiar
 import { DocumentosComponent } from './componentes/documentos/documentos.component';
 import { DropZoneDirective } from './directiva/drop-zone.directive';
 import { MiHojaFinalComponent } from './componentes/mi-hoja-final/mi-hoja-final.component';
+import { EducacionAptitudesComponent } from './componentes/educacion-aptitudes/educacion-aptitudes.component';
+import { ExperienciaLaboralComponent } from './componentes/experiencia-laboral/experiencia-laboral.component';
+import { SeguridadSocialComponent } from './componentes/seguridad-social/seguridad-social.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'personal', component: InformacionPersonalComponent,canActivate:[AuthGuard] },
   { path: 'familiar', component: InformacionFamiliarComponent,canActivate:[AuthGuard] },
+  { path: 'educacion', component: EducacionAptitudesComponent,canActivate:[AuthGuard] },
+  { path: 'experiencia', component: ExperienciaLaboralComponent,canActivate:[AuthGuard] },
+  { path: 'seguridad', component: SeguridadSocialComponent,canActivate:[AuthGuard] },
   { path: 'documentos', component: DocumentosComponent,canActivate:[AuthGuard] },
   { path: 'exportar', component: MiHojaFinalComponent,canActivate:[AuthGuard] },
   { path: '', component: InformacionGeneralComponent,canActivate:[AuthGuard]},
@@ -55,7 +61,10 @@ const routes: Routes = [
     InformacionFamiliarComponent,
     DocumentosComponent,
     DropZoneDirective,
-    MiHojaFinalComponent
+    MiHojaFinalComponent,
+    EducacionAptitudesComponent,
+    ExperienciaLaboralComponent,
+    SeguridadSocialComponent
   ],
   imports: [
     BrowserModule,

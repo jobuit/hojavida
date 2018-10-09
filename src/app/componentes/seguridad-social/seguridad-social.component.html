@@ -1,0 +1,137 @@
+<!-- Page Content Holder -->
+<div id="content">
+    <div class="card">
+        <div class="card-body">
+            <div class="input-group">
+                <div class="container-fluid">
+                    <form (submit)="SaveInformationSeguridad()">
+                        <div class="card-header">
+                            Seguridad social
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col">
+                                <div class="form-group mb-1">
+                                    <label class="titulo-label" for="entidad_eps">¿Entidad promotora de salud (EPS)?</label>
+                                    <div class="input-group">
+                                        <select class="form-control form-control-sm" id="entidad_eps" name="entidad_eps"
+                                            #entidad_eps [(ngModel)]="informacionSeguridadObject.entidad_eps">
+                                            <option disabled>-Seleccionar-</option>
+                                            <option value="si">Si</option>
+                                            <option value="no">No</option>
+                                        </select>
+                                    </div>
+                                    <div *ngIf="informacionSeguridadObject.entidad_eps == 'si'">
+                                        <div class="row">
+                                          <div class="col">
+                                              <label class="titulo-label" for="cual_eps">¿Cual?</label>
+                                              <input type="text" aria-label="Last name" class="form-control form-control-sm"
+                                              name="cual_eps" [(ngModel)]="informacionSeguridadObject.cual_eps">
+                                          </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                          <div class="col">
+                                              <label class="titulo-label" for="fecha_afiliacion_eps">Fecha de afiliacion</label>
+                                              <input type="date" aria-label="Last name" class="form-control form-control-sm"
+                                              name="fecha_afiliacion_eps" [(ngModel)]="informacionSeguridadObject.fecha_afiliacion_eps">
+                                          </div>
+                                            
+                                        </div>
+                                        
+                                    <div class="row">
+                                      <div class="col">
+                                          <label class="titulo-label" for="tipo_eps">Tipo de eps</label>
+                                          <select class="form-control form-control-sm" id="tipo_eps" name="tipo_eps"
+                                              #tipo_eps [(ngModel)]="informacionSeguridadObject.tipo_eps">
+                                              <option disabled>-Seleccionar-</option>
+                                              <option value="cotizante">Cotizante</option>
+                                              <option value="beneficiario">Beneficiario</option>
+                                          </select>
+                                      </div>
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group mb-1">
+                                    <label class="titulo-label" for="fondo_pensiones">¿Fondo de pensiones?</label>
+                                    <div class="input-group">
+                                        <select class="form-control form-control-sm" id="fondo_pensiones" name="fondo_pensiones"
+                                            #fondo_pensiones [(ngModel)]="informacionSeguridadObject.fondo_pensiones">
+                                            <option disabled>-Seleccionar-</option>
+                                            <option value="si">Si</option>
+                                            <option value="no">No</option>
+                                        </select>
+                                    </div>
+                                    <div *ngIf="informacionSeguridadObject.fondo_pensiones == 'si'">
+                                        <div class="row">
+                                          <div class="col">
+                                              <label class="titulo-label" for="cual_fondo_pensiones">¿Cual?</label>
+                                              <input type="text" aria-label="Last name" class="form-control form-control-sm"
+                                              name="cual_fondo_pensiones" [(ngModel)]="informacionSeguridadObject.cual_fondo_pensiones">
+                                          </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                          <div class="col">
+                                              <label class="titulo-label" for="fecha_afiliacion_pension">Fecha de afiliacion</label>
+                                              <input type="date" aria-label="Last name" class="form-control form-control-sm"
+                                              name="fecha_afiliacion_pension" [(ngModel)]="informacionSeguridadObject.fecha_afiliacion_pension">
+                                          </div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group mb-1">
+                                    <label class="titulo-label" for="fondo_cesantias">¿Fondo de cesantias?</label>
+                                    <div class="input-group">
+                                        <select class="form-control form-control-sm" id="fondo_cesantias" name="fondo_cesantias"
+                                            #fondo_cesantias [(ngModel)]="informacionSeguridadObject.fondo_cesantias">
+                                            <option disabled>-Seleccionar-</option>
+                                            <option value="si">Si</option>
+                                            <option value="no">No</option>
+                                        </select>
+                                    </div>
+                                    <div *ngIf="informacionSeguridadObject.fondo_cesantias == 'si'">
+                                        <div class="row">
+                                          <div class="col">
+                                              <label class="titulo-label" for="cual_fondo_cesantias">¿Cual?</label>
+                                              <input type="text" aria-label="Last name" class="form-control form-control-sm"
+                                              name="cual_fondo_cesantias" [(ngModel)]="informacionSeguridadObject.cual_fondo_cesantias">
+                                          </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                          <div class="col">
+                                              <label class="titulo-label" for="fecha_afiliacion_cesantias">Fecha de afiliacion</label>
+                                              <input type="date" aria-label="Last name" class="form-control form-control-sm"
+                                              name="fecha_afiliacion_cesantias" [(ngModel)]="informacionSeguridadObject.fecha_afiliacion_cesantias">
+                                          </div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="group text-center">
+                            <input type="submit" class="boton-form" value="Guardar informacion">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

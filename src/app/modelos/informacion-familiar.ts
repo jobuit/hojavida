@@ -10,7 +10,7 @@ export class InformacionFamiliar {
 
     numero_personas_dependen:number;
 
-    dependen: DatosDependen[] = [];
+    dependen: DatosDependen[]=[];
 
     nombre_padre:string;
     profesion_ocupacion_padre:string;
@@ -19,11 +19,21 @@ export class InformacionFamiliar {
     profesion_ocupacion_madre:string;
     telefono_madre:string;
 
-    numero_hermanos:string;
+    numero_hermanos:number;
+    hermanos: DatosHermanos[]=[];
+    
+
+}
+
+export class DatosHermanos{
     nombre_hermano:string;
     profesion_ocupacion_hermano:string;
     telefono_hermano:string;
-
+    constructor(nombre_hermano:string, profesion_ocupacion_hermano:string,telefono_hermano:string){
+        this.nombre_hermano=nombre_hermano;
+        this.profesion_ocupacion_hermano=profesion_ocupacion_hermano;
+        this.telefono_hermano=telefono_hermano;  
+    }
 }
 
 export class DatosDependen{

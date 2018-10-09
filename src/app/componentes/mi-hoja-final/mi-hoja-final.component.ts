@@ -3,8 +3,14 @@ import { MetodosService } from '../../servicios/metodos.service';
 import { FirebaseCrudService } from '../../servicios/firebase-crud.service';
 import {InformacionGeneral} from '../../modelos/informacion-general';
 import {InformacionPersonal} from '../../modelos/informacion-personal';
+import {InformacionFamiliar} from '../../modelos/informacion-familiar';
+import {EducacionAptitudes} from '../../modelos/educacion-aptitudes';
+import {ExperienciaLaboral} from '../../modelos/experiencia-laboral';
+import {SeguridadSocial} from '../../modelos/seguridad-social';
+
 import * as jsPDF from 'jspdf';
 import * as html2canvas from 'html2canvas';
+import { Observable } from 'rxjs/Observable';
 
 declare var $:any;
 
@@ -17,7 +23,15 @@ export class MiHojaFinalComponent implements OnInit {
 
   informacionGeneralObject:InformacionGeneral=new InformacionGeneral();
   informacionPersonalObject:InformacionPersonal=new InformacionPersonal();
+  informacionFamiliarObject:InformacionFamiliar=new InformacionFamiliar();
+  informacionEducacionObject:EducacionAptitudes=new EducacionAptitudes();
+  experienciaLaboralObject:ExperienciaLaboral=new ExperienciaLaboral();
+  informacionSeguridadObject:SeguridadSocial=new SeguridadSocial();
+
   imageData:any;
+
+  imgs:Observable<any[]>;
+  imagenes:any[];
 
   estado_civil:any;
 
@@ -25,15 +39,61 @@ export class MiHojaFinalComponent implements OnInit {
 
   ngOnInit() {
     this.ConseguirDatosFirebase();
+    this.imgs = this.firebaseCrud.TomarDocumentos();
+    this.imgs.forEach(element => {
+      this.imagenes=element;
+      for(var i=0;i<this.imagenes.length;i++){
+        this.imagenes[i].url = this.imagenes[i].url.replace('https://firebasestorage.googleapis.com/v0/b', '');
+      }
+    });
+
+    
+
   }
 
-  public downloadPDF(url:string){
-   console.log(url);
+  downloadPDF(){
+    var limit=this.imagenes.length;
     html2canvas(document.getElementById('contenido'),{ allowTaint: true }).then(function(canvas) {
-      var img = canvas.toDataURL("image/png");
       var doc = new jsPDF();
-      doc.addImage(img,'JPEG',0,0);
-      doc.save('test.pdf');
+      var img1 = canvas.toDataURL("image/png");
+      doc.addImage(img1,'JPEG',0,0);
+
+      html2canvas(document.getElementById('contenido2'),{ allowTaint: true }).then(function(canvas) {
+        doc.addPage();
+        var img2 = canvas.toDataURL("image/png");
+        doc.addImage(img2,'JPEG',0,0);
+        
+
+        html2canvas(document.getElementById('contenido3'),{ allowTaint: true }).then(function(canvas) {
+          doc.addPage();
+          var img3 = canvas.toDataURL("image/png");
+          doc.addImage(img3,'JPEG',0,0);
+
+          html2canvas(document.getElementById('contenido4'),{ allowTaint: true }).then(function(canvas) {
+            doc.addPage();
+            var img3 = canvas.toDataURL("image/png");
+            doc.addImage(img3,'JPEG',0,0);
+  
+            var cont=0;
+            for(var i=0;i<limit;i++){
+                html2canvas(document.getElementById('imagen'+i),{ allowTaint: true }).then(function(canvas) {
+                doc.addPage();
+                var img = canvas.toDataURL("image/png");
+                doc.addImage(img,'JPEG',0,0);
+              }).then((res)=>{
+                cont+=1;
+                if(cont==limit){
+                  doc.save('hoja_vida.pdf');
+                } 
+              })
+            }
+            
+          });
+
+        });
+
+      });
+
     });
   }
 
@@ -60,17 +120,42 @@ export class MiHojaFinalComponent implements OnInit {
       }
     });
 
+    this.firebaseCrud.setOpcion('informacion-familiar');
+    this.firebaseCrud.TomarObjeto().valueChanges()
+    .subscribe(res => {
+      if(res!=null){
+        this.informacionFamiliarObject = res as InformacionFamiliar;
+      }
+    });
+
+    this.firebaseCrud.setOpcion('educacion-aptitudes');
+    this.firebaseCrud.TomarObjeto().valueChanges()
+    .subscribe(res => {
+      if(res!=null){
+        this.informacionEducacionObject = res as EducacionAptitudes;
+        console.log()
+      }
+    });
+
+    this.firebaseCrud.setOpcion('experiencia-laboral');
+    this.firebaseCrud.TomarObjeto().valueChanges()
+    .subscribe(res => {
+      if(res!=null){
+        this.experienciaLaboralObject = res as ExperienciaLaboral;
+      }
+    });
+
+    this.firebaseCrud.setOpcion('seguridad-social');
+    this.firebaseCrud.TomarObjeto().valueChanges()
+    .subscribe(res => {
+      if(res!=null){
+        this.informacionSeguridadObject = res as SeguridadSocial;
+      }
+    });
   }
 
-  getSelectedOptionText(event: Event) {
-    let selectedOptions = event.target['options'];
-    let selectedIndex = selectedOptions.selectedIndex;
-    let selectElementText = selectedOptions[selectedIndex].text;
-    return selectElementText;
- }
-
-  exportarPDF(url:string){
-    this.downloadPDF(url);
+  exportarPDF(){
+    this.downloadPDF();
   }
 
 }

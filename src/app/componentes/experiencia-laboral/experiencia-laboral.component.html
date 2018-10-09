@@ -1,0 +1,193 @@
+<!-- Page Content Holder -->
+<div id="content" #content>
+  <div class="card">
+    <div class="card-body">
+      <div class="input-group">
+        <div class="container-fluid">
+
+          <form (submit)="SaveInformationExperiencia()">
+            <div class="card-header">
+              Experiencia laboral
+            </div>
+
+            <div class="row">
+                <div class="col">
+                        <label class="titulo-label" for="experiencias_laborales">Experiencias laborales</label>
+                        <select class="form-control form-control-sm" id="experiencias_laborales" #experiencias_laborales
+                           [(ngModel)]="experienciaLaboralObject.experiencias_laborales"
+                            name="experiencias_laborales" style="width:100px;" (change)="onChangeExperienciasSelect()">
+                            <option disabled>- Seleccionar -</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                </div>
+            </div>
+
+            <div *ngFor="let empresa of experienciaLaboralObject.empresas; let i=index;" class="borde">
+
+              <div class="row">
+                <div class="col">
+                  <div class="form-group mb-0">
+                    <label class="titulo-label" for="nombre_empresa">Nombre de la empresa</label>
+                    <input type="text" id="nombre_empresa" class="form-control form-control-sm" [(ngModel)]="empresa.nombre_empresa"
+                      name="nombre_empresa">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group mb-0">
+                    <label class="titulo-label" for="direccion">Direccion</label>
+                    <input type="text" id="direccion" class="form-control form-control-sm" [(ngModel)]="empresa.direccion"
+                      name="direccion">
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="form-group mb-0">
+                    <label class="titulo-label" for="telefono">Telefono</label>
+                    <input type="text" id="telefono" class="form-control form-control-sm" [(ngModel)]="empresa.telefono"
+                      name="telefono">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-5">
+                  <div class="form-group mb-0">
+                    <label class="titulo-label" for="jefe_inmediato">Nombre de su jefe inmediato</label>
+                    <input type="text" id="jefe_inmediato" class="form-control form-control-sm" [(ngModel)]="empresa.jefe_inmediato"
+                      name="jefe_inmediato">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group mb-0">
+                    <label class="titulo-label" for="cargo_jefe_inmediato">Cargo de su jefe inmediato</label>
+                    <input type="text" id="cargo_jefe_inmediato" class="form-control form-control-sm" [(ngModel)]="empresa.cargo_jefe_inmediato"
+                      name="cargo_jefe_inmediato">
+                  </div>
+                </div>
+
+                <div class="col-2">
+                  <div class="form-group mb-0">
+                    <label class="titulo-label" for="fecha_ingreso">Fecha de ingreso</label>
+                    <input type="date" id="fecha_ingreso" class="form-control form-control-sm" [(ngModel)]="empresa.fecha_ingreso"
+                      name="fecha_ingreso">
+                  </div>
+                </div>
+
+                <div class="col-2">
+                  <div class="form-group mb-0">
+                    <label class="titulo-label" for="fecha_retiro">Fecha de retiro</label>
+                    <input type="date" id="fecha_retiro" class="form-control form-control-sm" [(ngModel)]="empresa.fecha_retiro"
+                      name="fecha_retiro">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-2">
+                  <div class="form-group mb-0">
+                    <label class="titulo-label" for="tiempo_servicio">Tiempo del servicio</label>
+                    <input type="text" id="tiempo_servicio" class="form-control form-control-sm" [(ngModel)]="empresa.tiempo_servicio"
+                      name="tiempo_servicio">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group mb-0">
+                    <label class="titulo-label" for="sueldo_inicial">Sueldo inicial</label>
+                    <input type="text" id="sueldo_inicial" class="form-control form-control-sm" [(ngModel)]="empresa.sueldo_inicial"
+                      name="sueldo_inicial">
+                  </div>
+                </div>
+
+                <div class="col-3">
+                  <div class="form-group mb-0">
+                    <label class="titulo-label" for="sueldo_final">Sueldo final</label>
+                    <input type="text" id="sueldo_final" class="form-control form-control-sm" [(ngModel)]="empresa.sueldo_final"
+                      name="sueldo_final">
+                  </div>
+                </div>
+
+                <div class="col-4">
+                  <div class="form-group mb-0">
+                    <label class="titulo-label" for="cargo_desempenado">Cargo(s) desempeñado(s) por usted</label>
+                    <input type="text" id="cargo_desempenado" class="form-control form-control-sm" [(ngModel)]="empresa.cargo_desempenado"
+                      name="cargo_desempenado">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <div class="col">
+                        <label class="titulo-label" for="tipo_contrato">Tipo de contrato</label>
+                        <select class="form-control form-control-sm" id="tipo_contrato" #tipo_contrato
+                           [(ngModel)]="empresa.tipo_contrato"
+                            name="tipo_contrato">
+                            <option disabled>- Seleccionar -</option>
+                            <option value="indefinido">Indefinido</option>
+                            <option value="fijo">Fijo</option>
+                            <option value="contrato_directo_empresa">Contrato directo con la empresa</option>
+                            <option value="contrato_medio_agencia">Contrato por medio de agencia</option>
+                            <option value="otro">Otro</option>
+                        </select>
+
+                    <div *ngIf="empresa.tipo_contrato == 'otro'">
+                        <div class="input-group">
+                            <input type="text" aria-label="First name" class="form-control form-control-sm"
+                                name="cual_contrato" placeholder="¿Cual?" [(ngModel)]="empresa.cual_contrato">
+                        </div>
+                    </div>
+                  
+                </div>
+
+                <div class="col">
+                    <label class="titulo-label" for="horario_trabajo">Horario de trabajo</label>
+                    <select class="form-control form-control-sm" id="horario_trabajo" #horario_trabajo
+                       [(ngModel)]="empresa.horario_trabajo"
+                        name="horario_trabajo">
+                        <option disabled>- Seleccionar -</option>
+                        <option value="tiempo_completo">Tiempo completo</option>
+                        <option value="medio_tiempo">Medio tiempo</option>
+                        <option value="por_horas">Por horas</option>
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label class="titulo-label" for="jornada">Jornada</label>
+                    <select class="form-control form-control-sm" id="jornada" #jornada
+                       [(ngModel)]="empresa.jornada"
+                        name="jornada">
+                        <option disabled>- Seleccionar -</option>
+                        <option value="diurna">Diurna</option>
+                        <option value="nocturna">Nocturna</option>
+                        <option value="otra_jornada">Otra jornada</option>
+                    </select>
+                </div>
+
+                <div class="col">
+                    <div class="form-group mb-0">
+                      <label class="titulo-label" for="motivo_retiro">Motivo del retiro</label>
+                      <input type="text" id="motivo_retiro" class="form-control form-control-sm" [(ngModel)]="empresa.motivo_retiro"
+                        name="motivo_retiro">
+                    </div>
+                  </div>
+
+            </div>
+
+            </div>
+
+            <div class="group text-center">
+              <input type="submit" class="boton-form" value="Guardar informacion">
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

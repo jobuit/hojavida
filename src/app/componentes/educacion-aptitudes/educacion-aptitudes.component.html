@@ -1,0 +1,473 @@
+<!-- Page Content Holder -->
+<div id="content" #content>
+  <div class="card">
+    <div class="card-body">
+      <div class="input-group">
+        <div class="container-fluid">
+
+          <form (submit)="SaveInformationEducacion()">
+            <div class="card-header mb-1">
+              Educacion y aptitudes
+            </div>
+
+            <div class="borde">
+                <h6 class="m-0 p-0">Primaria</h6>
+                <div class="row">
+                  <div class="col-2">
+                    <div class="form-group mb-0">
+                      <label class="titulo-label" for="primaria_ano_finalizacion">Año de finalizacion</label>
+                      <input type="text" id="primaria_ano_finalizacion" class="form-control form-control-sm" [(ngModel)]="informacionEducacionObject.primaria_ano_finalizacion"
+                        name="primaria_ano_finalizacion">
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="form-group mb-0">
+                      <label class="titulo-label" for="primaria_anos_cursados">Años cursados</label>
+                      <input type="text" id="primaria_anos_cursados" class="form-control form-control-sm" [(ngModel)]="informacionEducacionObject.primaria_anos_cursados"
+                        name="primaria_anos_cursados">
+                    </div>
+                  </div>
+    
+                  <div class="col-3">
+                    <div class="form-group mb-0">
+                      <label class="titulo-label" for="primaria_titulo_obtenido">Titulo obtenido</label>
+                      <input type="text" id="primaria_titulo_obtenido" class="form-control form-control-sm" [(ngModel)]="informacionEducacionObject.primaria_titulo_obtenido"
+                        name="primaria_titulo_obtenido">
+                    </div>
+                  </div>
+    
+                  <div class="col-3">
+                    <div class="form-group mb-0">
+                      <label class="titulo-label" for="primaria_nombre_institucion">Nombre de la institucion</label>
+                      <input type="text" id="primaria_nombre_institucion" class="form-control form-control-sm" [(ngModel)]="informacionEducacionObject.primaria_nombre_institucion"
+                        name="primaria_nombre_institucion">
+                    </div>
+                  </div>
+    
+                  <div class="col-2">
+                    <div class="form-group mb-0">
+                      <label class="titulo-label" for="primaria_ciudad">Ciudad</label>
+                      <input type="text" id="primaria_ciudad" class="form-control form-control-sm" [(ngModel)]="informacionEducacionObject.primaria_ciudad"
+                        name="primaria_ciudad">
+                    </div>
+                  </div>
+    
+                </div>
+            </div>
+            
+            <div class="borde">
+                <h6 class="mb-0 mt-1 p-0">Bachillerato</h6>
+                <div class="row">
+                  <div class="col">
+                    <label class="titulo-label" for="bachillerato_tipo">Tipo de bachillerato</label>
+                    <select class="form-control form-control-sm" id="bachillerato_tipo" #bachillerato_tipo [(ngModel)]="informacionEducacionObject.bachillerato_tipo"
+                      name="bachillerato_tipo" style="width:150px;">
+                      <option disabled>- Seleccionar -</option>
+                      <option value="clasico">Clasico</option>
+                      <option value="tecnico">Tecnico</option>
+                      <option value="comercial">Comercial</option>
+                      <option value="otro">Otro</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="bachillerato_ano_finalizacion">Año de finalizacion</label>
+                        <input type="text" id="bachillerato_ano_finalizacion" class="form-control form-control-sm"
+                          [(ngModel)]="informacionEducacionObject.bachillerato_ano_finalizacion" name="bachillerato_ano_finalizacion">
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="bachillerato_anos_cursados">Años cursados</label>
+                        <input type="text" id="bachillerato_anos_cursados" class="form-control form-control-sm" [(ngModel)]="informacionEducacionObject.bachillerato_anos_cursados"
+                          name="bachillerato_anos_cursados">
+                      </div>
+                    </div>
+      
+                    <div class="col-3">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="bachillerato_titulo_obtenido">Titulo obtenido</label>
+                        <input type="text" id="bachillerato_titulo_obtenido" class="form-control form-control-sm" [(ngModel)]="informacionEducacionObject.bachillerato_titulo_obtenido"
+                          name="bachillerato_titulo_obtenido">
+                      </div>
+                    </div>
+      
+                    <div class="col-3">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="bachillerato_nombre_institucion">Nombre de la institucion</label>
+                        <input type="text" id="bachillerato_nombre_institucion" class="form-control form-control-sm"
+                          [(ngModel)]="informacionEducacionObject.bachillerato_nombre_institucion" name="bachillerato_nombre_institucion">
+                      </div>
+                    </div>
+      
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="bachillerato_ciudad">Ciudad</label>
+                        <input type="text" id="bachillerato_ciudad" class="form-control form-control-sm" [(ngModel)]="informacionEducacionObject.bachillerato_ciudad"
+                          name="bachillerato_ciudad">
+                      </div>
+                    </div>
+      
+                  </div>
+            </div>
+            
+            <div class="borde">
+                <h6 class="mb-0 mt-1 p-0">Tecnicos</h6>
+                <div class="row">
+                  <div class="col">
+                    <label class="titulo-label" for="numero_tecnicos">Numero de tecnicos</label>
+                    <select class="form-control form-control-sm" id="numero_tecnicos" #numero_tecnicos [(ngModel)]="informacionEducacionObject.numero_tecnicos"
+                      name="numero_tecnicos" style="width:100px;" (change)="onChangeTecnicosSelect()">
+                      <option disabled>- Seleccionar -</option>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                    </select>
+                  </div>
+                </div>
+    
+                <div *ngFor="let tecnico of informacionEducacionObject.tecnicos; let i=index;">
+                  <div class="row">
+    
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="tecnico_ano_finalizacion">Año de finalizacion</label>
+                        <input type="text" id="tecnico_ano_finalizacion" class="form-control form-control-sm" [(ngModel)]="tecnico.ano_finalizacion"
+                          name="tecnico_ano_finalizacion{{i}}">
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="tecnico_anos_cursados">Años cursados</label>
+                        <input type="text" id="tecnico_anos_cursados" class="form-control form-control-sm" [(ngModel)]="tecnico.anos_cursados"
+                          name="tecnico_anos_cursados{{i}}">
+                      </div>
+                    </div>
+    
+                    <div class="col-3">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="tecnico_titulo_obtenido">Titulo obtenido</label>
+                        <input type="text" id="tecnico_titulo_obtenido" class="form-control form-control-sm" [(ngModel)]="tecnico.titulo_obtenido"
+                          name="tecnico_titulo_obtenido{{i}}">
+                      </div>
+                    </div>
+    
+                    <div class="col-3">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="tecnico_nombre_institucion">Nombre de la institucion</label>
+                        <input type="text" id="tecnico_nombre_institucion" class="form-control form-control-sm" [(ngModel)]="tecnico.nombre_institucion"
+                          name="tecnico_nombre_institucion{{i}}">
+                      </div>
+                    </div>
+    
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="tecnico_ciudad">Ciudad</label>
+                        <input type="text" id="tecnico_ciudad" class="form-control form-control-sm" [(ngModel)]="tecnico.ciudad"
+                          name="tecnico_ciudad{{i}}">
+                      </div>
+                    </div>
+    
+                  </div>
+    
+                </div>
+            </div>
+            
+            <div class="borde">
+                <h6 class="mb-0 mt-1 p-0">Tecnologos</h6>
+                <div class="row">
+                  <div class="col">
+                    <label class="titulo-label" for="numero_tecnologos">Numero de tecnologos</label>
+                    <select class="form-control form-control-sm" id="numero_tecnologos" #numero_tecnologos [(ngModel)]="informacionEducacionObject.numero_tecnologos"
+                      name="numero_tecnologos" style="width:100px;" (change)="onChangeTecnologosSelect()">
+                      <option disabled>- Seleccionar -</option>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                    </select>
+                  </div>
+                </div>
+    
+                <div *ngFor="let tecnologo of informacionEducacionObject.tecnologos; let i=index;">
+                  <div class="row">
+    
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="tecnologo_ano_finalizacion">Año de finalizacion</label>
+                        <input type="text" id="tecnologo_ano_finalizacion" class="form-control form-control-sm" [(ngModel)]="tecnologo.ano_finalizacion"
+                          name="tecnologo_ano_finalizacion{{i}}">
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="tecnologo_anos_cursados">Años cursados</label>
+                        <input type="text" id="tecnologo_anos_cursados" class="form-control form-control-sm" [(ngModel)]="tecnologo.anos_cursados"
+                          name="tecnologo_anos_cursados{{i}}">
+                      </div>
+                    </div>
+    
+                    <div class="col-3">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="tecnologo_titulo_obtenido">Titulo obtenido</label>
+                        <input type="text" id="tecnologo_titulo_obtenido" class="form-control form-control-sm" [(ngModel)]="tecnologo.titulo_obtenido"
+                          name="tecnologo_titulo_obtenido{{i}}">
+                      </div>
+                    </div>
+    
+                    <div class="col-3">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="tecnologo_nombre_institucion">Nombre de la institucion</label>
+                        <input type="text" id="tecnologo_nombre_institucion" class="form-control form-control-sm"
+                          [(ngModel)]="tecnologo.nombre_institucion" name="tecnologo_nombre_institucion{{i}}">
+                      </div>
+                    </div>
+    
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="tecnologo_ciudad">Ciudad</label>
+                        <input type="text" id="tecnologo_ciudad" class="form-control form-control-sm" [(ngModel)]="tecnologo.ciudad"
+                          name="tecnologo_ciudad{{i}}">
+                      </div>
+                    </div>
+    
+                  </div>
+    
+                </div>
+            </div>
+            
+
+            <div class="borde">
+                <h6 class="mb-0 mt-1 p-0">Pregrados</h6>
+                <div class="row">
+                  <div class="col">
+                    <label class="titulo-label" for="numero_carreras">Numero de carreras</label>
+                    <select class="form-control form-control-sm" id="numero_carreras" #numero_carreras [(ngModel)]="informacionEducacionObject.numero_carreras"
+                      name="numero_carreras" style="width:100px;" (change)="onChangeCarrerasSelect()">
+                      <option disabled>- Seleccionar -</option>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                    </select>
+                  </div>
+                </div>
+    
+                <div *ngFor="let carrera of informacionEducacionObject.carreras; let i=index;">
+                  <div class="row">
+    
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="carrera_ano_finalizacion">Año de finalizacion</label>
+                        <input type="text" id="carrera_ano_finalizacion" class="form-control form-control-sm" [(ngModel)]="carrera.ano_finalizacion"
+                          name="carrera_ano_finalizacion{{i}}">
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="carrera_anos_cursados">Años cursados</label>
+                        <input type="text" id="carrera_anos_cursados" class="form-control form-control-sm" [(ngModel)]="carrera.anos_cursados"
+                          name="carrera_anos_cursados{{i}}">
+                      </div>
+                    </div>
+    
+                    <div class="col-3">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="carrera_titulo_obtenido">Titulo obtenido</label>
+                        <input type="text" id="carrera_titulo_obtenido" class="form-control form-control-sm" [(ngModel)]="carrera.titulo_obtenido"
+                          name="carrera_titulo_obtenido{{i}}">
+                      </div>
+                    </div>
+    
+                    <div class="col-3">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="carrera_nombre_institucion">Nombre de la institucion</label>
+                        <input type="text" id="carrera_nombre_institucion" class="form-control form-control-sm" [(ngModel)]="carrera.nombre_institucion"
+                          name="carrera_nombre_institucion{{i}}">
+                      </div>
+                    </div>
+    
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="carrera_ciudad">Ciudad</label>
+                        <input type="text" id="carrera_ciudad" class="form-control form-control-sm" [(ngModel)]="carrera.ciudad"
+                          name="carrera_ciudad{{i}}">
+                      </div>
+                    </div>
+    
+                  </div>
+    
+                </div>
+            </div>
+            
+            <div class="borde">
+                <h6 class="mb-0 mt-1 p-0">Postgrados</h6>
+                <div class="row">
+                  <div class="col">
+                    <label class="titulo-label" for="numero_postgrados">Numero de postgrados</label>
+                    <select class="form-control form-control-sm" id="numero_postgrados" #numero_postgrados [(ngModel)]="informacionEducacionObject.numero_postgrados"
+                      name="numero_postgrados" style="width:100px;" (change)="onChangePostgradosSelect()">
+                      <option disabled>- Seleccionar -</option>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                    </select>
+                  </div>
+                </div>
+    
+                <div *ngFor="let postgrado of informacionEducacionObject.postgrados; let i=index;">
+                  <div class="row">
+    
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="postgrado_ano_finalizacion">Año de finalizacion</label>
+                        <input type="text" id="postgrado_ano_finalizacion" class="form-control form-control-sm" [(ngModel)]="postgrado.ano_finalizacion"
+                          name="postgrado_ano_finalizacion{{i}}">
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="postgrado_anos_cursados">Años cursados</label>
+                        <input type="text" id="postgrado_anos_cursados" class="form-control form-control-sm" [(ngModel)]="postgrado.anos_cursados"
+                          name="postgrado_anos_cursados{{i}}">
+                      </div>
+                    </div>
+    
+                    <div class="col-3">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="postgrado_titulo_obtenido">Titulo obtenido</label>
+                        <input type="text" id="postgrado_titulo_obtenido" class="form-control form-control-sm" [(ngModel)]="postgrado.titulo_obtenido"
+                          name="postgrado_titulo_obtenido{{i}}">
+                      </div>
+                    </div>
+    
+                    <div class="col-3">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="postgrado_nombre_institucion">Nombre de la institucion</label>
+                        <input type="text" id="postgrado_nombre_institucion" class="form-control form-control-sm"
+                          [(ngModel)]="postgrado.nombre_institucion" name="postgrado_nombre_institucion{{i}}">
+                      </div>
+                    </div>
+    
+                    <div class="col-2">
+                      <div class="form-group mb-0">
+                        <label class="titulo-label" for="postgrado_ciudad">Ciudad</label>
+                        <input type="text" id="postgrado_ciudad" class="form-control form-control-sm" [(ngModel)]="postgrado.ciudad"
+                          name="postgrado_ciudad{{i}}">
+                      </div>
+                    </div>
+    
+                  </div>
+    
+                </div>
+            </div>
+            
+
+            <div class="row">
+                <div class="col">
+                  <label class="titulo-label" for="esta_estudiando">¿Esta estudiando actualmente?</label>
+                    <select class="form-control form-control-sm" id="esta_estudiando" name="esta_estudiando"
+                        #esta_estudiando [(ngModel)]="informacionEducacionObject.esta_estudiando" style="width:100px;">
+                        <option disabled>-Seleccionar-</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                
+            </div>
+                
+                <div *ngIf="informacionEducacionObject.esta_estudiando == 'si'">
+                  <div class="row">
+
+                  
+                    <div class="col-3">
+                        <div class="form-group mb-0">
+                          <label class="titulo-label" for="que_estudia">¿Que tipo de estudios?</label>
+                          <input type="text" id="que_estudia" class="form-control form-control-sm" [(ngModel)]="informacionEducacionObject.que_estudia"
+                            name="que_estudia">
+                        </div>
+                      </div>
+
+                      <div class="col-2">
+                          <div class="form-group mb-0">
+                            <label class="titulo-label" for="duracion">Duracion</label>
+                            <input type="text" id="duracion" class="form-control form-control-sm" [(ngModel)]="informacionEducacionObject.duracion"
+                              name="duracion">
+                          </div>
+                        </div>
+
+                        <div class="col-2">
+                            <div class="form-group mb-0">
+                              <label class="titulo-label" for="ano_semestre">Año que cursa</label>
+                              <input type="text" id="ano_semestre" class="form-control form-control-sm" [(ngModel)]="informacionEducacionObject.ano_semestre"
+                                name="ano_semestre">
+                            </div>
+                          </div>
+
+                          <div class="col-3">
+                              <div class="form-group mb-0">
+                                <label class="titulo-label" for="nombre_institucion">Nombre de la institucion</label>
+                                <input type="text" id="nombre_institucion" class="form-control form-control-sm" [(ngModel)]="informacionEducacionObject.nombre_institucion"
+                                  name="nombre_institucion">
+                              </div>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="form-group mb-0">
+                                  <label class="titulo-label" for="horario">Horario</label>
+                                  <input type="text" id="horario" class="form-control form-control-sm" [(ngModel)]="informacionEducacionObject.horario"
+                                    name="horario">
+                                </div>
+                              </div>
+                            </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                      <label class="titulo-label" for="otros_conocimientos">Otros conocimientos (Idiomas, sistemas, cursos, seminarios, etc)</label>
+                      <textarea id="otros_conocimientos" class="form-control form-control-sm" [(ngModel)]="informacionEducacionObject.otros_conocimientos"
+                      name="otros_conocimientos"></textarea>
+                  </div>
+                </div>
+              
+
+            <div class="group text-center">
+              <input type="submit" class="boton-form" value="Guardar informacion">
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

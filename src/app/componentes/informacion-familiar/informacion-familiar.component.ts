@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {InformacionFamiliar, DatosDependen} from '../../modelos/informacion-familiar';
+import {InformacionFamiliar, DatosDependen, DatosHermanos} from '../../modelos/informacion-familiar';
 import { MetodosService } from '../../servicios/metodos.service';
 import { FirebaseCrudService } from '../../servicios/firebase-crud.service';
 
@@ -21,10 +21,17 @@ export class InformacionFamiliarComponent implements OnInit {
   }
 
   onChangeDependenSelect(){
-    /*for(let i=0;i<this.informacionFamiliarObject.numero_personas_dependen;i++){
+    var tam=this.informacionFamiliarObject.numero_personas_dependen-this.informacionFamiliarObject.dependen.length;
+    for(let i=0;i<tam;i++){
       this.informacionFamiliarObject.dependen.push(new DatosDependen('','',''));
-    }*/
-    
+    }
+  }
+
+  onChangeHermanosSelect(){
+    var tam=this.informacionFamiliarObject.numero_hermanos-this.informacionFamiliarObject.hermanos.length;
+    for(let i=0;i<tam;i++){
+      this.informacionFamiliarObject.hermanos.push(new DatosHermanos('','',''));
+    }
   }
 
   ConseguirDatosFirebase(){
@@ -32,16 +39,20 @@ export class InformacionFamiliarComponent implements OnInit {
     .subscribe(res => {
       if(res!=null){
         this.informacionFamiliarObject = res as InformacionFamiliar;
-        console.log(this.informacionFamiliarObject.dependen)
+
+        if(this.informacionFamiliarObject.dependen==null){
+          this.informacionFamiliarObject.dependen=new Array<DatosDependen>();
+        }
+    
+        if(this.informacionFamiliarObject.hermanos==null){
+          this.informacionFamiliarObject.hermanos=new Array<DatosHermanos>();
+        }
       }
     });
+    
   }
 
   SaveInformationFamiliar(){
-    for(let i=0;i<this.informacionFamiliarObject.numero_personas_dependen;i++){
-      console.log(this.informacionFamiliarObject.dependen[i].nombres_parentesco);
-    }
-
     this.firebaseCrud.CrearNuevoObjeto(this.informacionFamiliarObject);
     this.metodoService.MensajeFlash('Informacion guardada correctamente','','success');
   }
