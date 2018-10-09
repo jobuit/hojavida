@@ -12,15 +12,10 @@ declare var $:any;
 })
 export class InformacionGeneralComponent implements OnInit {
 
-  selectLibreta:string="";
-  selectCategoria:string="";
-
-  selectedFiles: FileList;
-
   informacionGeneralObject:InformacionGeneral=new InformacionGeneral();
 
   constructor(public metodoService:MetodosService,public firebaseCrud:FirebaseCrudService) { }
-
+ 
   ngOnInit() {
 
     this.firebaseCrud.setOpcion('informacion-general');
@@ -66,17 +61,10 @@ export class InformacionGeneralComponent implements OnInit {
         if(this.informacionGeneralObject.avatar_url==null){
           this.informacionGeneralObject.avatar_url="assets/img/avatar.png";
         }
+      }else{
+        this.informacionGeneralObject.avatar_url="assets/img/avatar.png";
       }
     });
   }
-
-onChangeLibretaSelect(value){
-  this.selectLibreta=value;
-}
-
-onChangeCategoriaSelect(value){
-  this.selectCategoria=value;
-}
-
 
 }

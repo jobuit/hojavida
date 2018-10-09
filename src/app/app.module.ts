@@ -2,7 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+ 
 //Firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -11,6 +11,7 @@ import { environment } from '../environments/environment'
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 
+//Toastr
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -36,6 +37,7 @@ import { MiHojaFinalComponent } from './componentes/mi-hoja-final/mi-hoja-final.
 import { EducacionAptitudesComponent } from './componentes/educacion-aptitudes/educacion-aptitudes.component';
 import { ExperienciaLaboralComponent } from './componentes/experiencia-laboral/experiencia-laboral.component';
 import { SeguridadSocialComponent } from './componentes/seguridad-social/seguridad-social.component';
+import { ReferenciasPersonalesComponent } from './componentes/referencias-personales/referencias-personales.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -45,6 +47,7 @@ const routes: Routes = [
   { path: 'experiencia', component: ExperienciaLaboralComponent,canActivate:[AuthGuard] },
   { path: 'seguridad', component: SeguridadSocialComponent,canActivate:[AuthGuard] },
   { path: 'documentos', component: DocumentosComponent,canActivate:[AuthGuard] },
+  { path: 'referencias', component: ReferenciasPersonalesComponent,canActivate:[AuthGuard] },
   { path: 'exportar', component: MiHojaFinalComponent,canActivate:[AuthGuard] },
   { path: '', component: InformacionGeneralComponent,canActivate:[AuthGuard]},
   { path: '**', component: PaginaNoEncontradaComponent, pathMatch: 'full' }
@@ -64,7 +67,8 @@ const routes: Routes = [
     MiHojaFinalComponent,
     EducacionAptitudesComponent,
     ExperienciaLaboralComponent,
-    SeguridadSocialComponent
+    SeguridadSocialComponent,
+    ReferenciasPersonalesComponent
   ],
   imports: [
     BrowserModule,

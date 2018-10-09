@@ -8,7 +8,7 @@
             <div class="ml-2 mb-4">
                     <h3 class="mb-0">Mi hoja de vida</h3>
                     <div class="row ml-2">
-                        <img src="{{photoUser}}" class="rounded-circle" style="widht:50px;height:50px;">
+                        <img src="{{photoUser}}" class="rounded-circle" style="width:50px;height:50px;">
                         <div class="ml-1">
                             <small>{{emailUser}}</small><br>
                             <a href="/login" (click)="cerrarSesion()"><small>Cerrar sesion</small></a>
@@ -36,7 +36,7 @@
                 <a href="#" routerLink="/seguridad" routerLinkActive="active"><i class="fas fa-briefcase-medical"></i> Seguridad social</a>
             </li>
         <li>
-            <a href="#"><i class="fas fa-phone-square"></i> Referencias personales</a>
+            <a href="#" routerLink="/referencias" routerLinkActive="active"><i class="fas fa-phone-square"></i> Referencias personales</a>
         </li>
 
         <li>
@@ -49,12 +49,6 @@
 
     </ul>
 
-    <p>Encuentranos</p>
-    <div class="row justify-content-center align-items-center">
-        <a href=""><img src="assets/img/internet.png"/></a>
-        <a href=""><i class="fab fa-facebook mr-2 ml-2 fa-2x" style="color:white"></i></a>
-        <a href=""><i class="fab fa-instagram mr-2 ml-2 fa-2x" style="color:white"></i></a>
-    </div>
 </div>
 
 </nav>

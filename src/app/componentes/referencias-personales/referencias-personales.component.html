@@ -1,0 +1,139 @@
+<!-- Page Content Holder -->
+<div id="content" #content>
+  <div class="card">
+    <div class="card-body">
+      <div class="input-group">
+        <div class="container-fluid">
+
+          <form (submit)="SaveReferenciasPersonales()">
+            <div class="card-header">
+              Referencias Personales
+            </div>
+
+            <label class="titulo-label" for="ref_familiar1_nombre">Referencias de personas distintas a familiares y empleadores</label>
+            <div class="border">
+                <div class="row m-0">
+
+                    <div class="col-4">
+                      <div class="form-group">
+                        <label class="titulo-label" for="ref_familiar1_nombre">Nombre completo</label>
+                        <input type="text" id="ref_familiar1_nombre" class="form-control form-control-sm" [(ngModel)]="referenciasPersonalesObject.ref_familiar1_nombre"
+                          name="ref_familiar1_nombre">
+                      </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-group">
+                          <label class="titulo-label" for="ref_familiar1_direccion">Direccion</label>
+                          <input type="text" id="ref_familiar1_direccion" class="form-control form-control-sm" [(ngModel)]="referenciasPersonalesObject.ref_familiar1_direccion"
+                            name="ref_familiar1_direccion">
+                        </div>
+                      </div>
+      
+                    <div class="col">
+                      <div class="form-group">
+                        <label class="titulo-label" for="ref_familiar1_ocupacion">Ocupacion</label>
+                        <input type="text" id="ref_familiar1_ocupacion" class="form-control form-control-sm"
+                          [(ngModel)]="referenciasPersonalesObject.ref_familiar1_ocupacion" name="ref_familiar1_ocupacion">
+                      </div>
+                    </div>
+        
+                      <div class="col">
+                        <div class="form-group">
+                          <label class="titulo-label" for="ref_familiar1_telefono">Telefono</label>
+                          <input type="text" id="ref_familiar1_telefono" class="form-control form-control-sm"
+                            [(ngModel)]="referenciasPersonalesObject.ref_familiar1_telefono" name="ref_familiar1_telefono">
+                        </div>
+                      </div>
+      
+                  </div>
+      
+                  <div class="row m-0">
+      
+                      <div class="col-4">
+                        <div class="form-group">
+                          <label class="titulo-label" for="ref_familiar2_nombre">Nombre completo</label>
+                          <input type="text" id="ref_familiar2_nombre" class="form-control form-control-sm" [(ngModel)]="referenciasPersonalesObject.ref_familiar2_nombre"
+                            name="ref_familiar2_nombre">
+                        </div>
+                      </div>
+
+                      <div class="col-4">
+                          <div class="form-group">
+                            <label class="titulo-label" for="ref_familiar2_direccion">Direccion</label>
+                            <input type="text" id="ref_familiar2_direccion" class="form-control form-control-sm" [(ngModel)]="referenciasPersonalesObject.ref_familiar2_direccion"
+                              name="ref_familiar2_direccion">
+                          </div>
+                        </div>
+        
+                      <div class="col">
+                        <div class="form-group">
+                          <label class="titulo-label" for="ref_familiar2_ocupacion">Ocupacion</label>
+                          <input type="text" id="ref_familiar2_ocupacion" class="form-control form-control-sm"
+                            [(ngModel)]="referenciasPersonalesObject.ref_familiar2_ocupacion" name="ref_familiar2_ocupacion">
+                        </div>
+                      </div>
+          
+                        <div class="col">
+                          <div class="form-group">
+                            <label class="titulo-label" for="ref_familiar2_telefono">Telefono</label>
+                            <input type="text" id="ref_familiar2_telefono" class="form-control form-control-sm"
+                              [(ngModel)]="referenciasPersonalesObject.ref_familiar2_telefono" name="ref_familiar2_telefono">
+                          </div>
+                        </div>
+        
+                    </div>
+      
+            </div>
+
+            <label class="titulo-label" for="ref_familiar3_nombre">Referencia de familiar que podamos contactar en caso de no poder localizarlo a usted directamente</label>
+            <div class="border">
+                <div class="row m-0">
+
+                    <div class="col-4">
+                      <div class="form-group">
+                        <label class="titulo-label" for="ref_familiar3_nombre">Nombre completo</label>
+                        <input type="text" id="ref_familiar3_nombre" class="form-control form-control-sm" [(ngModel)]="referenciasPersonalesObject.ref_familiar3_nombre"
+                          name="ref_familiar3_nombre">
+                      </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-group">
+                          <label class="titulo-label" for="ref_familiar3_direccion">Direccion</label>
+                          <input type="text" id="ref_familiar3_direccion" class="form-control form-control-sm" [(ngModel)]="referenciasPersonalesObject.ref_familiar3_direccion"
+                            name="ref_familiar3_direccion">
+                        </div>
+                      </div>
+      
+                    <div class="col">
+                      <div class="form-group">
+                        <label class="titulo-label" for="ref_familiar3_ocupacion">Ocupacion</label>
+                        <input type="text" id="ref_familiar3_ocupacion" class="form-control form-control-sm"
+                          [(ngModel)]="referenciasPersonalesObject.ref_familiar3_ocupacion" name="ref_familiar3_ocupacion">
+                      </div>
+                    </div>
+        
+                      <div class="col">
+                        <div class="form-group">
+                          <label class="titulo-label" for="ref_familiar3_telefono">Telefono</label>
+                          <input type="text" id="ref_familiar3_telefono" class="form-control form-control-sm"
+                            [(ngModel)]="referenciasPersonalesObject.ref_familiar3_telefono" name="ref_familiar3_telefono">
+                        </div>
+                      </div>
+      
+                  </div>
+      
+            </div>
+            
+            
+            <div class="group text-center">
+              <input type="submit" class="boton-form" value="Guardar informacion">
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

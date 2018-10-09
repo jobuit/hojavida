@@ -540,7 +540,7 @@
 
             </div>
 
-             <!--Informacion Familiar-->
+             <!--Informacion Familiar y Referencias Personales-->
             <div id="contenido2" class="contenido">
                 <div>
                     <div class="card-header">
@@ -764,7 +764,113 @@
                         </div>
                     </div>
 
-
+                    <div class="card-header">
+                            Referencias Personales
+                          </div>
+              
+                          <label class="titulo-label" for="ref_familiar1_nombre">Referencias de personas distintas a familiares y empleadores</label>
+                          <div class="border">
+                              <div class="row m-0">
+              
+                                  <div class="col-4">
+                                    <div class="form-group mb-0">
+                                      <label class="titulo-label" for="ref_familiar1_nombre">Nombre completo</label>
+                                      <p class="ml-3">{{referenciasPersonalesObject.ref_familiar1_nombre}}</p>
+                                    </div>
+                                  </div>
+              
+                                  <div class="col-4">
+                                      <div class="form-group mb-0">
+                                        <label class="titulo-label" for="ref_familiar1_direccion">Direccion</label>
+                                        <p class="ml-3">{{referenciasPersonalesObject.ref_familiar1_direccion}}</p>
+                                      </div>
+                                    </div>
+                    
+                                  <div class="col">
+                                    <div class="form-group mb-0">
+                                      <label class="titulo-label" for="ref_familiar1_ocupacion">Ocupacion</label>
+                                      <p class="ml-3">{{referenciasPersonalesObject.ref_familiar1_ocupacion}}</p>
+                                    </div>
+                                  </div>
+                      
+                                    <div class="col">
+                                      <div class="form-group mb-0">
+                                        <label class="titulo-label" for="ref_familiar1_telefono">Telefono</label>
+                                        <p class="ml-3">{{referenciasPersonalesObject.ref_familiar1_telefono}}</p>
+                                      </div>
+                                    </div>
+                    
+                                </div>
+                    
+                                <div class="row m-0">
+                    
+                                    <div class="col-4">
+                                      <div class="form-group mb-0">
+                                        <label class="titulo-label" for="ref_familiar2_nombre">Nombre completo</label>
+                                        <p class="ml-3">{{referenciasPersonalesObject.ref_familiar2_nombre}}</p>
+                                      </div>
+                                    </div>
+              
+                                    <div class="col-4">
+                                        <div class="form-group mb-0">
+                                          <label class="titulo-label" for="ref_familiar2_direccion">Direccion</label>
+                                          <p class="ml-3">{{referenciasPersonalesObject.ref_familiar2_direccion}}</p>
+                                        </div>
+                                      </div>
+                      
+                                    <div class="col">
+                                      <div class="form-group mb-0">
+                                        <label class="titulo-label" for="ref_familiar2_ocupacion">Ocupacion</label>
+                                        <p class="ml-3">{{referenciasPersonalesObject.ref_familiar2_ocupacion}}</p>
+                                      </div>
+                                    </div>
+                        
+                                      <div class="col">
+                                        <div class="form-group mb-0">
+                                          <label class="titulo-label" for="ref_familiar2_telefono">Telefono</label>
+                                          <p class="ml-3">{{referenciasPersonalesObject.ref_familiar2_telefono}}</p>
+                                        </div>
+                                      </div>
+                      
+                                  </div>
+                    
+                          </div>
+              
+                          <label class="titulo-label" for="ref_familiar3_nombre">Referencia de familiar que podamos contactar en caso de no poder localizarlo a usted directamente</label>
+                          <div class="border">
+                              <div class="row m-0">
+              
+                                  <div class="col-4">
+                                    <div class="form-group mb-0">
+                                      <label class="titulo-label" for="ref_familiar3_nombre">Nombre completo</label>
+                                      <p class="ml-3">{{referenciasPersonalesObject.ref_familiar3_nombre}}</p>
+                                    </div>
+                                  </div>
+              
+                                  <div class="col-4">
+                                      <div class="form-group mb-0">
+                                        <label class="titulo-label" for="ref_familiar3_direccion">Direccion</label>
+                                        <p class="ml-3">{{referenciasPersonalesObject.ref_familiar3_direccion}}</p>
+                                      </div>
+                                    </div>
+                    
+                                  <div class="col">
+                                    <div class="form-group mb-0">
+                                      <label class="titulo-label" for="ref_familiar3_ocupacion">Ocupacion</label>
+                                      <p class="ml-3">{{referenciasPersonalesObject.ref_familiar3_ocupacion}}</p>
+                                    </div>
+                                  </div>
+                      
+                                    <div class="col">
+                                      <div class="form-group mb-0">
+                                        <label class="titulo-label" for="ref_familiar3_telefono">Telefono</label>
+                                        <p class="ml-3">{{referenciasPersonalesObject.ref_familiar3_telefono}}</p>
+                                      </div>
+                                    </div>
+                    
+                                </div>
+                    
+                          </div>
 
                 </div>
 
@@ -1224,7 +1330,7 @@
                         </div>
             </div>
 
-            <!--Experiencia laboral-->
+            <!--Experiencia laboral y Seguridad social-->
             <div id="contenido4" class="contenido">
                     <div class="card-header">
                             Experiencia laboral
@@ -1375,116 +1481,115 @@
                           </div>
               
                           </div>
-            </div>
 
-            <!--Seguridad social y Referencias personales-->
-            <div id="contenido5" class="contenido">
-                    <div class="card-header">
-                            Seguridad social
-                        </div>
-
-                        <div class="row p-0 m-0">
-
-                            <div class="col">
-                                <div class="form-group mb-1">
-                                    <label class="titulo-label" for="entidad_eps">¿Entidad promotora de salud (EPS)?</label>
-                                    <div class="input-group">
-                                        <select class="form-control form-control-sm" id="entidad_eps" name="entidad_eps"
-                                            #entidad_eps [(ngModel)]="informacionSeguridadObject.entidad_eps">
-                                            <option disabled>-Seleccionar-</option>
-                                            <option value="si">Si</option>
-                                            <option value="no">No</option>
-                                        </select>
-                                        <p class="ml-3">{{entidad_eps.options[entidad_eps.selectedIndex].text}}</p>
-                                    </div>
-                                    <div *ngIf="informacionSeguridadObject.entidad_eps == 'si'">
-                                        <div class="row p-0 m-0">
-                                          <div class="col">
-                                              <label class="titulo-label" for="cual_eps">¿Cual?</label>
-                                              <p class="ml-3">{{informacionSeguridadObject.cual_eps}}</p>
-                                          </div>
-                                          <div class="col">
-                                                <label class="titulo-label" for="fecha_afiliacion_eps">Fecha de afiliacion</label>
-                                                <p class="ml-3">{{informacionSeguridadObject.fecha_afiliacion_eps}}</p>
-                                            </div>
-                                            <div class="col">
-                                                    <label class="titulo-label" for="tipo_eps">Tipo de eps</label>
-                                                    <select class="form-control form-control-sm" id="tipo_eps" name="tipo_eps"
-                                                        #tipo_eps [(ngModel)]="informacionSeguridadObject.tipo_eps">
-                                                        <option disabled>-Seleccionar-</option>
-                                                        <option value="cotizante">Cotizante</option>
-                                                        <option value="beneficiario">Beneficiario</option>
-                                                    </select>
-                                                    <p class="ml-3">{{tipo_eps.options[tipo_eps.selectedIndex].text}}</p>
+                          <div class="card-header">
+                                Seguridad social
+                            </div>
+    
+                            <div class="row p-0 m-0">
+    
+                                <div class="col">
+                                    <div class="form-group mb-1">
+                                        <label class="titulo-label" for="entidad_eps">¿Entidad promotora de salud (EPS)?</label>
+                                        <div class="input-group">
+                                            <select class="form-control form-control-sm" id="entidad_eps" name="entidad_eps"
+                                                #entidad_eps [(ngModel)]="informacionSeguridadObject.entidad_eps">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                            <p class="ml-3">{{entidad_eps.options[entidad_eps.selectedIndex].text}}</p>
+                                        </div>
+                                        <div *ngIf="informacionSeguridadObject.entidad_eps == 'si'">
+                                            <div class="row p-0 m-0">
+                                              <div class="col">
+                                                  <label class="titulo-label" for="cual_eps">¿Cual?</label>
+                                                  <p class="ml-3">{{informacionSeguridadObject.cual_eps}}</p>
+                                              </div>
+                                              <div class="col">
+                                                    <label class="titulo-label" for="fecha_afiliacion_eps">Fecha de afiliacion</label>
+                                                    <p class="ml-3">{{informacionSeguridadObject.fecha_afiliacion_eps}}</p>
                                                 </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="form-group mb-1">
-                                    <label class="titulo-label" for="fondo_pensiones">¿Fondo de pensiones?</label>
-                                    <div class="input-group">
-                                        <select class="form-control form-control-sm" id="fondo_pensiones" name="fondo_pensiones"
-                                            #fondo_pensiones [(ngModel)]="informacionSeguridadObject.fondo_pensiones">
-                                            <option disabled>-Seleccionar-</option>
-                                            <option value="si">Si</option>
-                                            <option value="no">No</option>
-                                        </select>
-                                        <p class="ml-3">{{fondo_pensiones.options[fondo_pensiones.selectedIndex].text}}</p>
-                                    </div>
-                                    <div *ngIf="informacionSeguridadObject.fondo_pensiones == 'si'">
-                                        <div class="row p-0 m-0">
-                                          <div class="col">
-                                              <label class="titulo-label" for="cual_fondo_pensiones">¿Cual?</label>
-                                              <p class="ml-3">{{informacionSeguridadObject.cual_fondo_pensiones}}</p>
-                                          </div>
-                                          <div class="col">
-                                                <label class="titulo-label" for="fecha_afiliacion_pension">Fecha de afiliacion</label>
-                                                <p class="ml-3">{{informacionSeguridadObject.fecha_afiliacion_pension}}</p>
+                                                <div class="col">
+                                                        <label class="titulo-label" for="tipo_eps">Tipo de eps</label>
+                                                        <select class="form-control form-control-sm" id="tipo_eps" name="tipo_eps"
+                                                            #tipo_eps [(ngModel)]="informacionSeguridadObject.tipo_eps">
+                                                            <option disabled>-Seleccionar-</option>
+                                                            <option value="cotizante">Cotizante</option>
+                                                            <option value="beneficiario">Beneficiario</option>
+                                                        </select>
+                                                        <p class="ml-3">{{tipo_eps.options[tipo_eps.selectedIndex].text}}</p>
+                                                    </div>
                                             </div>
                                         </div>
-                                        
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="form-group mb-1">
-                                    <label class="titulo-label" for="fondo_cesantias">¿Fondo de cesantias?</label>
-                                    <div class="input-group">
-                                        <select class="form-control form-control-sm" id="fondo_cesantias" name="fondo_cesantias"
-                                            #fondo_cesantias [(ngModel)]="informacionSeguridadObject.fondo_cesantias">
-                                            <option disabled>-Seleccionar-</option>
-                                            <option value="si">Si</option>
-                                            <option value="no">No</option>
-                                        </select>
-                                        <p class="ml-3">{{fondo_cesantias.options[fondo_cesantias.selectedIndex].text}}</p>
-                                    </div>
-                                    <div *ngIf="informacionSeguridadObject.fondo_cesantias == 'si'">
-                                        <div class="row p-0 m-0">
-                                          <div class="col">
-                                              <label class="titulo-label" for="cual_fondo_cesantias">¿Cual?</label>
-                                              <p class="ml-3">{{informacionSeguridadObject.cual_fondo_cesantias}}</p>
-                                          </div>
-                                          <div class="col">
-                                                <label class="titulo-label" for="fecha_afiliacion_cesantias">Fecha de afiliacion</label>
-                                                <p class="ml-3">{{informacionSeguridadObject.fecha_afiliacion_cesantias}}</p>
-                                            </div>
+    
+                                <div class="col">
+                                    <div class="form-group mb-1">
+                                        <label class="titulo-label" for="fondo_pensiones">¿Fondo de pensiones?</label>
+                                        <div class="input-group">
+                                            <select class="form-control form-control-sm" id="fondo_pensiones" name="fondo_pensiones"
+                                                #fondo_pensiones [(ngModel)]="informacionSeguridadObject.fondo_pensiones">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                            <p class="ml-3">{{fondo_pensiones.options[fondo_pensiones.selectedIndex].text}}</p>
                                         </div>
-                                        
+                                        <div *ngIf="informacionSeguridadObject.fondo_pensiones == 'si'">
+                                            <div class="row p-0 m-0">
+                                              <div class="col">
+                                                  <label class="titulo-label" for="cual_fondo_pensiones">¿Cual?</label>
+                                                  <p class="ml-3">{{informacionSeguridadObject.cual_fondo_pensiones}}</p>
+                                              </div>
+                                              <div class="col">
+                                                    <label class="titulo-label" for="fecha_afiliacion_pension">Fecha de afiliacion</label>
+                                                    <p class="ml-3">{{informacionSeguridadObject.fecha_afiliacion_pension}}</p>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="col">
+                                    <div class="form-group mb-1">
+                                        <label class="titulo-label" for="fondo_cesantias">¿Fondo de cesantias?</label>
+                                        <div class="input-group">
+                                            <select class="form-control form-control-sm" id="fondo_cesantias" name="fondo_cesantias"
+                                                #fondo_cesantias [(ngModel)]="informacionSeguridadObject.fondo_cesantias">
+                                                <option disabled>-Seleccionar-</option>
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                            <p class="ml-3">{{fondo_cesantias.options[fondo_cesantias.selectedIndex].text}}</p>
+                                        </div>
+                                        <div *ngIf="informacionSeguridadObject.fondo_cesantias == 'si'">
+                                            <div class="row p-0 m-0">
+                                              <div class="col">
+                                                  <label class="titulo-label" for="cual_fondo_cesantias">¿Cual?</label>
+                                                  <p class="ml-3">{{informacionSeguridadObject.cual_fondo_cesantias}}</p>
+                                              </div>
+                                              <div class="col">
+                                                    <label class="titulo-label" for="fecha_afiliacion_cesantias">Fecha de afiliacion</label>
+                                                    <p class="ml-3">{{informacionSeguridadObject.fecha_afiliacion_cesantias}}</p>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+    
+                            
             </div>
 
             <!--Documentos-->
             <div class="contenido text-center">
                 <div *ngFor="let img of imagenes; let i=index;" class="col">
                         <div id="imagen{{i}}">
-                            <img [src]="img.url">
+                            <img [src]="img.url" style="max-width: 760px;">
                         </div>
                     </div>
             </div>

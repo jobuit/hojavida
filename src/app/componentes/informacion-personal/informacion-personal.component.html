@@ -14,7 +14,7 @@
                                         <label class="titulo-label" for="tarbajando_select">¿Esta trabajando actualmente?</label>
                                         <div class="input-group">
                                             <select class="form-control form-control-sm" id="tarbajando_select" name="tarbajando_select"
-                                                #tarbajando_select (change)="onChangeTrabajandoSelect(tarbajando_select.value)" [(ngModel)]="informacionPersonalObject.trabajando_actualmente">
+                                                #tarbajando_select [(ngModel)]="informacionPersonalObject.trabajando_actualmente">
                                                 <option disabled>-Seleccionar-</option>
                                                 <option value="si">Si</option>
                                                 <option value="no">No</option>
@@ -30,14 +30,14 @@
                                             <div class="input-group">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="exampleRadios" id="radioEmpleado"
-                                                        value="option1" checked >
+                                                        value="empleado" [(ngModel)]="informacionPersonalObject.tipo_empleado" >
                                                     <label class="titulo-label" for="radioEmpleado">
                                                         Empleado
                                                     </label>
                                                 </div>
                                                 <div class="form-check ml-2">
                                                     <input class="form-check-input" type="radio" name="exampleRadios" id="radioIndependiente"
-                                                        value="option2">
+                                                        value="independiente" [(ngModel)]="informacionPersonalObject.tipo_empleado">
                                                     <label class="titulo-label" for="radioIndependiente">
                                                         Independiente
                                                     </label>
@@ -64,7 +64,7 @@
                                             <label class="titulo-label" for="solicito_select">¿Ha solicito el empleo antes?</label>
                                             <div class="input-group">
                                                 <select class="form-control form-control-sm" id="solicito_select" name="solicitado_antes"
-                                                    #solicito_select (change)="onChangeSolicitoSelect(solicito_select.value)" [(ngModel)]="informacionPersonalObject.solicitado_antes">
+                                                    #solicito_select [(ngModel)]="informacionPersonalObject.solicitado_antes">
                                                     <option disabled>-Seleccionar-</option>
                                                     <option value="si">Si</option>
                                                     <option value="no">No</option>
@@ -83,14 +83,14 @@
                                 </div>
     
                             </div>
-    
+     
                             <div class="row">
                                 <div class="col align-self-end">
                                     <div class="form-group mb-1">
                                         <label class="titulo-label" for="recomendo_select">¿Lo recomendo alguien de esta empresa?</label>
                                         <div class="input-group">
                                             <select class="form-control form-control-sm" id="recomendo_select" name="recomienda_alguien_empresa"
-                                                #recomendo_select (change)="onChangeRecomendoSelect(recomendo_select.value)" [(ngModel)]="informacionPersonalObject.recomienda_alguien_empresa">
+                                                #recomendo_select [(ngModel)]="informacionPersonalObject.recomienda_alguien_empresa">
                                                 <option disabled>-Seleccionar-</option>
                                                 <option value="si">Si</option>
                                                 <option value="no">No</option>
@@ -113,7 +113,7 @@
                                             empresa?</label>
                                         <div class="input-group">
                                             <select class="form-control form-control-sm" id="parientes_select" name="parientes_empresa"
-                                                #parientes_select (change)="onChangeParientesSelect(parientes_select.value)" [(ngModel)]="informacionPersonalObject.parientes_empresa">
+                                                #parientes_select [(ngModel)]="informacionPersonalObject.parientes_empresa">
                                                 <option disabled>-Seleccionar-</option>
                                                 <option value="si">Si</option>
                                                 <option value="no">No</option>
@@ -136,7 +136,7 @@
                                             vacante?</label>
                                         <div class="input-group">
                                             <select class="form-control form-control-sm" id="conocimiento_select" name="conocimiento_vacante"
-                                                #conocimiento_select (change)="onChangeConocimientoSelect(conocimiento_select.value)" [(ngModel)]="informacionPersonalObject.conocimiento_vacante">
+                                                #conocimiento_select [(ngModel)]="informacionPersonalObject.conocimiento_vacante">
                                                 <option disabled>-Seleccionar-</option>
                                                 <option value="anuncio">Anuncio</option>
                                                 <option value="amigo">Amigo</option>
@@ -176,7 +176,7 @@
                                         <label class="titulo-label" for="casa_select">Vive en casa:</label>
                                         <div class="input-group">
                                             <select class="form-control form-control-sm" id="casa_select" #casa_select name="tipo_casa"
-                                                (change)="onChangeCasaSelect(casa_select.value)" [(ngModel)]="informacionPersonalObject.tipo_casa">
+                                                [(ngModel)]="informacionPersonalObject.tipo_casa">
                                                 <option disabled>-Seleccionar-</option>
                                                 <option value="familiar">Familiar</option>
                                                 <option value="propia">Propia</option>
@@ -204,7 +204,7 @@
                                             adicional?</label>
                                         <div class="input-group">
                                             <select class="form-control form-control-sm" id="ingreso_select" name="ingreso_adicional"
-                                                #ingreso_select (change)="onChangeIngresoSelect(ingreso_select.value)" [(ngModel)]="informacionPersonalObject.ingreso_adicional">
+                                                #ingreso_select [(ngModel)]="informacionPersonalObject.ingreso_adicional">
                                                 <option disabled>-Seleccionar-</option>
                                                 <option value="si">Si</option>
                                                 <option value="no">No</option>
@@ -272,7 +272,7 @@
                                         <label class="titulo-label" for="deporte_select">¿Practica algun deporte?</label>
                                         <div class="input-group">
                                             <select class="form-control form-control-sm" id="deporte_select" name="practica_deporte"
-                                                #deporte_select (change)="onChangeDeporteSelect(deporte_select.value)" [(ngModel)]="informacionPersonalObject.practica_deporte">
+                                                #deporte_select [(ngModel)]="informacionPersonalObject.practica_deporte">
                                                 <option disabled>-Seleccionar-</option>
                                                 <option value="si">Si</option>
                                                 <option value="no">No</option>

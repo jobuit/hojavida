@@ -10,15 +10,6 @@ import {InformacionPersonal} from '../../modelos/informacion-personal';
 })
 export class InformacionPersonalComponent implements OnInit {
 
-  selectTrabajando:string="";
-  selectSolicito:string="";
-  selectRecomendo:string="";
-  selectParientes:string="";
-  selectConocimiento:string="";
-  selectCasa:string="";
-  selectIngreso:string="";
-  selectDeporte:string="";
-
   informacionPersonalObject:InformacionPersonal=new InformacionPersonal();
 
   constructor(public metodoService:MetodosService,public firebaseCrud:FirebaseCrudService) { }
@@ -41,38 +32,5 @@ export class InformacionPersonalComponent implements OnInit {
       }
     });
   }
-
-  onChangeTrabajandoSelect(value){
-    this.selectTrabajando=value;
-  }
-
-  onChangeSolicitoSelect(value){
-    this.selectSolicito=value;
-  }
-
-  onChangeRecomendoSelect(value){
-    this.selectRecomendo=value;
-  }
-
-  onChangeParientesSelect(value){
-    this.selectParientes=value;
-  }
-
-  onChangeConocimientoSelect(value){
-    this.selectConocimiento=value;
-  }
-
-  onChangeCasaSelect(value){
-    this.selectCasa=value;
-  }
-
-  onChangeIngresoSelect(value){
-    this.selectIngreso=value;
-  }
-
-  onChangeDeporteSelect(value){
-    this.selectDeporte=value;
-  }
-
-
+  
 }

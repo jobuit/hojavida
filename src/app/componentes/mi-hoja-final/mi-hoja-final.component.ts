@@ -7,6 +7,7 @@ import {InformacionFamiliar} from '../../modelos/informacion-familiar';
 import {EducacionAptitudes} from '../../modelos/educacion-aptitudes';
 import {ExperienciaLaboral} from '../../modelos/experiencia-laboral';
 import {SeguridadSocial} from '../../modelos/seguridad-social';
+import {ReferenciasPersonales} from '../../modelos/referencias-personales';
 
 import * as jsPDF from 'jspdf';
 import * as html2canvas from 'html2canvas';
@@ -27,6 +28,7 @@ export class MiHojaFinalComponent implements OnInit {
   informacionEducacionObject:EducacionAptitudes=new EducacionAptitudes();
   experienciaLaboralObject:ExperienciaLaboral=new ExperienciaLaboral();
   informacionSeguridadObject:SeguridadSocial=new SeguridadSocial();
+  referenciasPersonalesObject:ReferenciasPersonales=new ReferenciasPersonales();
 
   imageData:any;
 
@@ -109,6 +111,8 @@ export class MiHojaFinalComponent implements OnInit {
         }else{
           this.informacionGeneralObject.avatar_url = this.informacionGeneralObject.avatar_url.replace('https://firebasestorage.googleapis.com/v0/b', '');
         }
+      }else{
+        this.informacionGeneralObject.avatar_url="assets/img/avatar.png";
       }
     });
 
@@ -133,7 +137,6 @@ export class MiHojaFinalComponent implements OnInit {
     .subscribe(res => {
       if(res!=null){
         this.informacionEducacionObject = res as EducacionAptitudes;
-        console.log()
       }
     });
 
@@ -150,6 +153,14 @@ export class MiHojaFinalComponent implements OnInit {
     .subscribe(res => {
       if(res!=null){
         this.informacionSeguridadObject = res as SeguridadSocial;
+      }
+    });
+
+    this.firebaseCrud.setOpcion('referencias-personales');
+    this.firebaseCrud.TomarObjeto().valueChanges()
+    .subscribe(res => {
+      if(res!=null){
+        this.referenciasPersonalesObject = res as ReferenciasPersonales;
       }
     });
   }

@@ -16,7 +16,6 @@ export class InformacionFamiliarComponent implements OnInit {
 
   ngOnInit() {
     this.firebaseCrud.setOpcion('informacion-familiar');
-
     this.ConseguirDatosFirebase();
   }
 

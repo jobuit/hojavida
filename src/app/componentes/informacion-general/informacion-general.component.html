@@ -162,7 +162,7 @@
                             <div class="col align-self-center">
                                 <label class="titulo-label" for="libreta_select">Libreta militar</label>
                                 <select class="form-control form-control-sm" id="libreta_select" #libreta_select
-                                    (change)="onChangeLibretaSelect(libreta_select.value)" [(ngModel)]="informacionGeneralObject.tipo_libreta"
+                                 [(ngModel)]="informacionGeneralObject.tipo_libreta"
                                     name="tipo_libreta">
                                     <option disabled>- Seleccionar -</option>
                                     <option value="libreta_primera">Primera clase</option>
@@ -208,7 +208,7 @@
                                 <label class="titulo-label" for="categoria_select">Licencia de conduccion</label>
                                 <div class="input-group">
                                     <select class="form-control form-control-sm" id="categoria_select"
-                                        #categoria_select (change)="onChangeCategoriaSelect(categoria_select.value)"
+                                        #categoria_select
                                         [(ngModel)]="informacionGeneralObject.categoria_licencia" name="categoria_licencia">
                                         <option disabled>Categoria</option>
                                         <option value="a1">A1</option>
